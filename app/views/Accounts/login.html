@@ -1,0 +1,31 @@
+#{extends 'main.html' /}
+#{set title:'Login to donate to Homer' /}
+
+<nav class="ui menu">
+  <a class="ui item" href="/">Welcome</a>
+  <a class="ui item" href="/signup">Sign Up</a>
+  <a class="ui active item" href="/login">Log In</a>
+  <a class="ui item" href="/logout">Log Out</a>
+</nav>
+
+ <section class="ui segment">
+  <h3>Log into your account</h3>
+  <h5>Your username is the email you registered with us</h5>
+  <form action="/authenticate" method="POST">
+    <div class="ui two column grid">
+    <div class="column">
+      <div class="ui fluid form segment">
+        <div class="ui left icon input field">
+          <input placeholder="Email" name="email" type="text">
+          
+        </div>
+        <div class="ui left icon input field">
+          <input placeholder="Password" type="password" name="password">
+       
+        </div>
+        <button type="submit" class="ui blue submit button">Login</button>
+      </div>
+    </div>
+    </div>
+  </form>
+</section> 

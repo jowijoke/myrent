@@ -1,0 +1,43 @@
+#{extends 'main.html' /}
+#{set title:'Signup' /}
+
+   <nav class="ui menu">
+  <a class="ui item" href="/">Welcome</a>
+  <a class="ui active item" href="/signup">Sign Up</a>
+  <a class="ui item" href="/login">Log In</a>
+  <a class="ui item" href="/logout">Log Out</a>
+</nav>
+
+<section class="ui form">
+	<h3>Create a MyRent account</h3>
+	<h5>Register using a valid email address</h5>
+	<form action="/register" method="POST">
+	  <div class="ui two column grid">
+	  <div class="column">
+	    <div class="ui equal width form">
+	      <div class="fields">
+	        <div class="field">
+	          <input placeholder="First Name" name="user.firstName" type="text">
+	        </div>
+	        <div class="field">
+	          <input placeholder="Last Name" name="user.lastName" type="text">
+	        </div>
+	      </div>
+	      <div class="field">
+          <input placeholder="Email" name="user.email" type="text">    
+          </div>
+          <div class="field">
+          <input placeholder="Password" name="user.password" type="text">
+          </div>
+        </div>
+	      <div class="field">
+	        <div class="ui checkbox">
+	          <input id="conditions" type="checkbox">
+	          <label for="conditions">I agree to the terms and conditions</label>
+	        </div>
+	     </div>
+	      <button type="submit" class="ui blue submit button">Submit</button>
+	     </div>
+	    </div>
+	</form>
+</section>
