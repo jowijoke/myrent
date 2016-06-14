@@ -1,5 +1,8 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -13,6 +16,10 @@ public class User extends Model {
 	public String lastName;
 	public String email;
 	public String password;
+	
+	@OneToMany(mappedBy = "from" , cascade = CascadeType.ALL)
+	List<Residence> rent = new ArrayList<Residence>();
+	
 	
 	public User(String firstName, String lastName, String email, String password) {
 		this.firstName = firstName;

@@ -12,6 +12,9 @@ GET		/logout									Accounts.logout
 POST	/authenticate							Accounts.authenticate
 POST	/register								Accounts.register
 
+# InputData page
+GET		/inputdata								InputData.index
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
