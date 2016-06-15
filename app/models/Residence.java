@@ -13,16 +13,20 @@ import play.db.jpa.Model;
 public class Residence extends Model{
 	 
 		public boolean rented;
+		public String geolocation;
+		public int rent;
 		public int numberBedrooms;
 		public String residenceType;
 		
 		@ManyToOne
 		public User from;
 		
-		public Residence(User from, boolean rented, int numberBedrooms, String residenceType)
+		public Residence(User from, String geolocation, boolean rented, int rent, int numberBedrooms, String residenceType)
 		{
 			this.from = from;
+			this.geolocation = geolocation;
 			this.rented = rented;
+			this.rent = rent;
 			this.numberBedrooms = numberBedrooms;
 			this.residenceType = residenceType;
 		}

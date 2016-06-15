@@ -14,26 +14,23 @@
     <div class="ui two column grid">
       <div class="column">
         <div class="ui fluid form segment">         
-          <label>Location </label> 
-          <!-- <input type="text" id="geolocation" name="residence.geolocation" value="53.347298,-6.268344" read only class="input-medium">   -->         
+          <label>Location </label>         
           <div class="ui input">
-            <input id = "geolocation" value="53.347298, -6.268344" name="residence.geolocation"  type="text" readonly>
+            <input id = "geolocation" value="53.347298, -6.268344" name="geolocation"  type="text" readonly>
           </div>               
         </div>
-        <!--   Residence rented or vacant? -->  
         <div class="ui fluid form segment">
-          <!-- Rented or vacant? -->
 				  <div class="ui form">			
 				    <div class="grouped inline fields">
 				      <div class="field">
 				        <div class="ui radio checkbox">
-				          <input name="residence.rented" checked="checked" type="radio" value="yes">
+				          <input name="rented" checked="checked" type="radio" value="true">
 				          <label>Rented</label>
 				        </div>
 				      </div>
 				      <div class="field">
 				        <div class="ui radio checkbox">
-				          <input name="residence.rented" type="radio" value="no">
+				          <input name="rented" type="radio" value="false">
 				          <label>Vacant</label>
 				        </div>
 				      </div>
@@ -41,36 +38,31 @@
 				    </div>
 				  </div>					  			  
         </div>
-        <!--   The monthly rent  -->
         <div class="ui two column grid">
           <div class="column">
 		        <div class="ui fluid form segment">
-		          <!-- <label class="control-label"> Rent per calendar month(&euro;): </label>  -->
 		          <div class="ui labeled input">
 		            <div class="ui label">
 		              Rent (&euro;)
 		            </div>   
-                <input value="1500" name="residence.rent"  type="text" size="4">
+                <input value="" name="rent"  type="text" size="4">
              </div>
 		        </div>
 		      </div>
-		      <!--   The number of bedrooms  -->
 		      <div class="column">
             <div class="ui fluid form segment">
-              <!-- <label class="control-label"> Rent per calendar month(&euro;): </label>  -->
               <div class="ui labeled input">
                 <div class="ui label">
                   Bedrooms:
                 </div>   
-                <input value="3" name="residence.numberBedrooms"  type="text" size=1>
+                <input value="" name="numberBedrooms"  type="text" size=1>
              </div>
             </div>
           </div>
-        </div>   
-        <!--   The residence type  -->    
+        </div>    
         <div class="ui fluid form segment">
 				  <div class="ui selection dropdown">
-				    <input name="residence.residenceType" type="hidden">
+				    <input name="residenceType" type="hidden">
 				    <div class="text">Residence type</div>
 				    <i class="dropdown icon"></i>
 				    <div class="menu">
@@ -80,23 +72,21 @@
 				    </div>
 				  </div> 
         </div>
-        <!--   Submit form button  -->
         <div class="form-actions">
           <button class="ui blue submit button">Submit Data </button>
           <div class="ui error message"></div>
         </div>
       </div>            
-      <!-- end first column -->
-      <!-- The map representing residence location -->
       <div class="column">
         <div class="ui raised fluid form segment">
-          <div id="map_canvas"></div>
-          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-          
+          <div id="map_canvas"  >Map Canvas</div>
+          <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>   
+          <script src="/public/javascripts/map.js" type="text/javascript" charset="utf-8"></script>       
         </div>
       </div>
-      <!-- 2nd column -->
     </div>
-    <!-- class ui two column grid -->
   </form> 
 </section>
+ 
+
+<script src="/public/javascripts/inputdata.js" type="text/javascript" charset="utf-8"></script>

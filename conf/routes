@@ -14,6 +14,7 @@ POST	/register								Accounts.register
 
 # InputData page
 GET		/inputdata								InputData.index
+POST    /inputdata/datacapture					InputData.capture
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
