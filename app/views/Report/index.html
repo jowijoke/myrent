@@ -1,0 +1,25 @@
+#{extends 'main.html' /} #{set title:'Report' /}
+
+<nav class="ui menu">
+   <a class="ui item" href="/">Welcome</a>
+   <a class="ui item" href="/signup">Sign Up</a>
+   <a class="ui item" href="/login">Log In</a>
+   <a class="ui item" href="/inputdata">Input data</a>
+   <a class="ui active item" href="/report">Report</a>
+   <a class="ui item" href="/logout">Log Out</a>
+ </nav>
+ 
+ <section class="ui segment">      
+  <h4>Define the region for which you require a report</h4>
+  <form action="/report/generateReport" method="POST">    
+    Size and position circle to select region for report 
+    <div id="map_canvas"></div>
+    <br>
+    <button type="submit" class="ui blue submit button" onclick="requestReport()">Generate Report</button>
+    <div style="visibility: hidden" name="circledata" id="circledata">
+      <input type="text"  id="radius" name="radius">
+      <input type="text"  id="latcenter" name="latcenter">
+      <input type="text"  id="lngcenter" name="lngcenter">
+    </div>
+  </form>
+</section>
