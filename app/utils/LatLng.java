@@ -1,5 +1,7 @@
 package utils;
 
+import play.Logger;
+
 public class LatLng
 {
 	
@@ -25,8 +27,10 @@ public class LatLng
    */
   public static LatLng toLatLng(String latlng)
   {
+	Logger.info("Got cordinates");
     String[] latLng = latlng.split(",");
     return new LatLng(Double.parseDouble(latLng[0]), Double.parseDouble(latLng[1]));
+    
   }
 
 

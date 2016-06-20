@@ -18,7 +18,11 @@ POST    /inputdata/datacapture					InputData.capture
 
 # Report page
 GET		/report									ReportController.index
-POST	/report/generateReport					ReportController.generateReport			
+POST	/report/generateReport					ReportController.generateReport		
+
+# Contact page
+GET 	/contact								Contact.index
+POST	/contact/sendmessage					Contact.send	
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

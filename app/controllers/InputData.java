@@ -45,5 +45,6 @@ private static void addData(User user, String geolocation, boolean rented, int r
 {
 	Residence input = new Residence(user, geolocation, rented, rent, numberBedrooms, residenceType);
 	input.save();
+	Logger.info("Residence saved");
 }
 }

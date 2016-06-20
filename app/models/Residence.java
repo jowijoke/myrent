@@ -1,5 +1,6 @@
 package models;
 
+import play.*;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -38,5 +39,6 @@ public class Residence extends Model{
 		 */
 		public LatLng getGeolocation() {
 			return LatLng.toLatLng(geolocation);
+			
 		}
 }
