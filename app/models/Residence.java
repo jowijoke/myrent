@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import controllers.Accounts;
 import play.Logger;
 import play.db.jpa.Model;
+import utils.LatLng;
 
 @Entity
 public class Residence extends Model{
@@ -17,6 +18,7 @@ public class Residence extends Model{
 		public int rent;
 		public int numberBedrooms;
 		public String residenceType;
+		
 		
 		@ManyToOne
 		public User from;
@@ -29,5 +31,12 @@ public class Residence extends Model{
 			this.rent = rent;
 			this.numberBedrooms = numberBedrooms;
 			this.residenceType = residenceType;
+		}
+
+		/*
+		 * Send String geolocation to LatLng.java to change geolocaton's primitive data type.
+		 */
+		public LatLng getGeolocation() {
+			return LatLng.toLatLng(geolocation);
 		}
 }

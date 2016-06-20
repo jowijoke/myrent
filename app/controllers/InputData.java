@@ -2,7 +2,7 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-
+import utils.LatLng;
 
 import java.util.Date;
 

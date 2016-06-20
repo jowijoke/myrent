@@ -1,0 +1,6 @@
+User(homer):
+    firstName: Homer
+    lastName: Simpson
+    email: homer@simpson.com
+    password: secret
+    dateRegistered: 2016-04-14t15:10:15.05

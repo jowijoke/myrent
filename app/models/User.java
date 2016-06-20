@@ -1,6 +1,7 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -16,6 +17,7 @@ public class User extends Model {
 	public String lastName;
 	public String email;
 	public String password;
+	public Date dateRegistered;
 	
 	@OneToMany(mappedBy = "from" , cascade = CascadeType.ALL)
 	List<Residence> rent = new ArrayList<Residence>();
@@ -26,6 +28,7 @@ public class User extends Model {
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+		dateRegistered = new Date();
 
 	}
 

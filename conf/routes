@@ -16,6 +16,10 @@ POST	/register								Accounts.register
 GET		/inputdata								InputData.index
 POST    /inputdata/datacapture					InputData.capture
 
+# Report page
+GET		/report									ReportController.index
+POST	/report/generateReport					ReportController.generateReport			
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

@@ -1,0 +1,59 @@
+#{extends 'main.html' /} #{set title:'report/generateReport' /}
+
+<nav class="ui menu">
+	<a class="ui item" href="/">Welcome</a> <a class="ui item"
+		href="/signup">Sign Up</a> <a class="ui item" href="/login">Log In</a>
+	<a class="ui item" href="/inputdata">Input data</a> <a
+		class="ui active item" href="/report">Report</a> <a class="ui item"
+		href="/logout">Log Out</a>
+</nav>
+
+<section class="ui segment">
+	<h4>Report</h4>
+
+	<section class="ui segment">
+		<table class="ui table segment">
+			<thead>
+				<tr>
+					<th>Commissioned by</th>
+					<th>Search: radius(m)</th>
+					<th>centre(latitude)</th>
+					<th>centre(longitude)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>${user.firstName}</td>
+					<td>${circle.radius}</td>
+					<td>${circle.latcenter}</td>
+					<td>${circle.lngcenter}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="ui five column celled table segment">
+			<thead>
+				<tr>
+					<th>Residence Id</th>
+					<th>Residence User</th>
+					<th>Date registered</th>
+					<th>Rented?</th>
+					<th>Rent</th>
+					<th>Bedrooms</th>
+				</tr>
+			</thead>
+			<tbody>
+			#{list items: residences, as:'residence'}
+				<tr>
+					<td>${residence.id}</td>
+					<td>${residence.from.firstName}&nbsp${residence.from.lastName}</td>
+					<td>${user.dateRegistered}</td>
+					<td>${residence.rented}</td>
+					<td>${residence.rent}</td>
+					<td>${residence.numberBedrooms}</td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+	</section>
+</section>
