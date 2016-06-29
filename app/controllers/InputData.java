@@ -24,9 +24,9 @@ public class InputData extends Controller {
 		}
 	}
 
-public static void capture(String geolocation, boolean rented, int rent, int numberBedrooms, String residenceType)
+public static void capture(String geolocation, boolean rented, int rent, int numberBedrooms, int numberBathrooms, int area, String residenceType)
 {	
-	Logger.info("data recorded" + " " + geolocation + " " + rented + " " + rent + " " + numberBedrooms  + residenceType);
+	Logger.info("data recorded" + " " + geolocation + " " + rented + " " + rent + " " + numberBedrooms  + numberBathrooms + area + residenceType);
 	
 	User user = Accounts.getCurrentUser();
 	if(user == null)
@@ -36,14 +36,14 @@ public static void capture(String geolocation, boolean rented, int rent, int num
 	}
 	else
 	{
-		addData(user, geolocation, rented, rent, numberBedrooms, residenceType);
+		addData(user, geolocation, rented, rent, numberBedrooms, numberBathrooms, area, residenceType);
 	}
 	index();
 }
 
-private static void addData(User user, String geolocation, boolean rented, int rent, int numberBedrooms, String residenceType)
+private static void addData(User user, String geolocation, boolean rented, int rent, int numberBedrooms, int numberBathrooms, int area, String residenceType)
 {
-	Residence input = new Residence(user, geolocation, rented, rent, numberBedrooms, residenceType);
+	Residence input = new Residence(user, geolocation, rented, rent, numberBedrooms, numberBathrooms, area, residenceType);
 	input.save();
 	Logger.info("Residence saved");
 }
