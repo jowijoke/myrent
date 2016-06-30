@@ -26,9 +26,9 @@ public class InputData extends Controller {
 		}
 	}
 
-public static void capture(String geolocation, boolean rented, int rent, int numberBedrooms, int numberBathrooms, int area, String residenceType)
+public static void capture(String geolocation, boolean rented, int rent, int numberBedrooms, String residenceType)
 {	
-	Logger.info("data recorded" + " " + geolocation + " " + rented + " " + rent + " " + numberBedrooms  + numberBathrooms + area + residenceType);
+	Logger.info("data recorded" + " " + geolocation + " " + rented + " " + rent + " " + numberBedrooms  + residenceType);
 	
 	User user = Accounts.getCurrentUser();
 	if(user == null)
@@ -38,7 +38,7 @@ public static void capture(String geolocation, boolean rented, int rent, int num
 	}
 	else
 	{
-		addData(user, geolocation, rented, rent, numberBedrooms, numberBathrooms, area, residenceType);
+		addData(user, geolocation, rented, rent, numberBedrooms, residenceType);
 	}
 	//index();
 	JSONObject obj = new JSONObject();
@@ -48,9 +48,9 @@ public static void capture(String geolocation, boolean rented, int rent, int num
     renderJSON(obj);
 }
 
-private static void addData(User user, String geolocation, boolean rented, int rent, int numberBedrooms, int numberBathrooms, int area, String residenceType)
+private static void addData(User user, String geolocation, boolean rented, int rent, int numberBedrooms, String residenceType)
 {
-	Residence input = new Residence(user, geolocation, rented, rent, numberBedrooms, numberBathrooms, area, residenceType);
+	Residence input = new Residence(user, geolocation, rented, rent, numberBedrooms, residenceType);
 	input.save();
 	Logger.info("Residence saved");
 }
