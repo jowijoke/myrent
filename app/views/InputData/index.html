@@ -11,7 +11,7 @@
 </nav>
 
 <section class="ui segment">
-	<form class="ui form" action="/inputdata/datacapture" method="POST">
+	<form class="ui form">
 		<p>Please input residence data</p>
 		<div class="ui two column grid">
 			<div class="column">
@@ -23,35 +23,35 @@
 					</div>
 				</div>
 				<div class="ui fluid form segment">
-					<div class="ui form">
+					
 						<div class="grouped inline fields">
 							<div class="field">
 								<div class="ui radio checkbox">
-									<input name="rented" checked="checked" type="radio" value="yes">
+									<input name="rented" checked="checked" type="radio" value="yes" required>
 									<label>Rented</label>
 								</div>
 							</div>
 							<div class="field">
 								<div class="ui radio checkbox">
-									<input name="rented" type="radio" value="no"> <label>Vacant</label>
+									<input name="rented" type="radio" value="no" required> <label>Vacant</label>
 								</div>
 							</div>
 						</div>
-					</div>
+					
 				</div>
 				<div class="ui two column grid">
 					<div class="column">
 						<div class="ui fluid form segment">
 							<div class="ui labeled input">
 								<div class="ui label">Rent (&euro;)</div>
-								<input value="" name="rent" type="text" size="4">
+								<input value="" name="rent" type="text" size="4" required>
 							</div>
 						</div>
 
 						<div class="ui fluid form segment">
 							<div class="ui labeled input">
 								<div class="ui label">Area(sq.m):</div>
-								<input value="" name="area" type="text" size=3>
+								<input value="" name="area" type="text" size=3 required>
 							</div>
 						</div>
 					</div>
@@ -59,21 +59,21 @@
 						<div class="ui fluid form segment">
 							<div class="ui labeled input">
 								<div class="ui label">Bedrooms:</div>
-								<input value="" name="numberBedrooms" type="text" size=1>
+								<input value="" name="numberBedrooms" type="text" size=1 required>
 							</div>
 						</div>
 
 						<div class="ui fluid form segment">
 							<div class="ui labeled input">
 								<div class="ui label">Bathrooms:</div>
-								<input value="" name="numberBathrooms" type="text" size=1>
+								<input value="" name="numberBathrooms" type="text" size=1 required>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="ui fluid form segment">
 					<div class="ui selection dropdown">
-						<input name="residenceType" type="hidden">
+						<input name="residenceType" type="hidden" required>
 						<div class="text">Residence type</div>
 						<i class="dropdown icon"></i>
 						<div class="menu">
@@ -83,10 +83,12 @@
 						</div>
 					</div>
 				</div>
+				
+				 <div id="notification"></div>
 				<div class="form-actions">
 					<button class="ui blue submit button">Submit Data</button>
 					<div class="ui error message"></div>
-				</div>
+			</div>	
 			</div>
 			<div class="column">
 				<div class="ui raised fluid form segment">
