@@ -7,6 +7,7 @@ import utils.LatLng;
 import java.util.Date;
 
 import models.*;
+import org.json.simple.JSONObject;
 
 public class InputData extends Controller {
 	public static void index() 
@@ -38,7 +39,12 @@ public static void capture(String geolocation, boolean rented, int rent, int num
 	{
 		addData(user, geolocation, rented, rent, numberBedrooms, residenceType);
 	}
-	index();
+	//index();
+		JSONObject obj = new JSONObject();
+	    String value = "<div class=\"ui tertiary inverted green fluid form segment\">"
+	    		+ "Congratulations. You have successfully registered your " + residenceType +".</div>";
+	    obj.put("inputdata", value);
+	    renderJSON(obj);
 }
 
 private static void addData(User user, String geolocation, boolean rented, int rent, int numberBedrooms, String residenceType)

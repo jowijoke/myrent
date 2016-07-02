@@ -1,6 +1,6 @@
 #{extends 'main.html' /} #{set title:'InputData' /}
 
-<nav class="ui menu">
+<nav class="ui olive inverted menu">
 	<a class="ui item" href="/">Welcome</a>
 	<a class="ui item" href="/signup">Sign Up</a>
 	<a class="ui item" href="/login">Log In</a>
@@ -11,7 +11,7 @@
 </nav>
 
 <section class="ui segment">
-	<form class="ui form" action="/inputdata/datacapture" method="POST">
+	<form class="ui form segment">
 		<p>Please input residence data</p>
 		<div class="ui two column grid">
 			<div class="column">
@@ -83,6 +83,7 @@
 						</div>
 					</div>
 				</div>
+				<div id="notification"></div>
 				<div class="form-actions">
 					<button class="ui blue submit button">Submit Data</button>
 					<div class="ui error message"></div>
