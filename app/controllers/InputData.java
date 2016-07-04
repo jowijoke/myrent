@@ -12,31 +12,31 @@ import org.json.simple.JSONObject;
 public class InputData extends Controller {
 	public static void index() 
 	{
-		User user = Accounts.getCurrentUser();
-		if (user == null)
+		Landlord landlord = Landlords.getCurrentLandlord();
+		if (landlord == null)
 		{
-			Logger.info("InputData class : Unable to getCurrentUser");
-			Accounts.login();
+			Logger.info("InputData class : Unable to getCurrentLandlord");
+			Landlords.login();
 		}
 		else
 		{
 		Logger.info("Landed in InputData Page");
-		render(user);
+		render(landlord);
 		}
 	}
 
 public static void capture(String geolocation, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 {	
 	Logger.info("data recorded: " + "geolocation: "  + geolocation + " area: " + area + " rented: " + rented + " rent: " + rent + " numberBedrooms: " + numberBedrooms  + " numberBathrooms: " + numberBathrooms + " residenceType: " + residenceType);	
-	User user = Accounts.getCurrentUser();
-	if(user == null)
+	Landlord landlord = Landlords.getCurrentLandlord();
+	if(landlord == null)
 	{
-		Logger.info("Residence class : Unable to getCurrentuser");
-		Accounts.login();
+		Logger.info("Residence class : Unable to getCurrentLandlord");
+		Landlords.login();
 	}
 	else
 	{
-		addData(user, geolocation, area, rented, rent, numberBedrooms, numberBathrooms, residenceType);
+		addData(landlord, geolocation, area, rented, rent, numberBedrooms, numberBathrooms, residenceType);
 	}
 	//index();
 		JSONObject obj = new JSONObject();
@@ -46,9 +46,9 @@ public static void capture(String geolocation, int area, boolean rented, int ren
 	    renderJSON(obj);
 }
 
-private static void addData(User user, String geolocation, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
+private static void addData(Landlord landlord, String geolocation, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 {
-	Residence input = new Residence(user, geolocation, area, rented, rent, numberBedrooms, numberBathrooms, residenceType);
+	Residence input = new Residence(landlord, geolocation, area, rented, rent, numberBedrooms, numberBathrooms, residenceType);
 	input.save();
 	Logger.info("Residence saved");
 }

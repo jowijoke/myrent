@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-import controllers.Accounts;
+import controllers.Landlords;
 import play.Logger;
 import play.db.jpa.Model;
 import utils.LatLng;
@@ -24,9 +24,9 @@ public class Residence extends Model{
 		
 		
 		@ManyToOne
-		public User from;
+		public Landlord from;
 		
-		public Residence(User from, String geolocation, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
+		public Residence(Landlord from, String geolocation, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 		{
 			this.from = from;
 			this.geolocation = geolocation;

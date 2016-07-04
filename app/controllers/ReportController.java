@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Residence;
-import models.User;
+import models.Landlord;
 import play.Logger;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -16,14 +16,14 @@ public class ReportController extends Controller
 {
   /**
    * This method executed before each action call in the controller.
-   * Checks that a user has logged in.
-   * If no user logged in the user is presented with the log in screen.
+   * Checks that a landlord has logged in.
+   * If no landlord logged in the landlord is presented with the log in screen.
    */
   @Before
   static void checkAuthentification()
   {
-    if(session.contains("logged_in_userid") == false)
-      Accounts.login();
+    if(session.contains("logged_in_landlordid") == false)
+      Landlords.login();
   }
 
   /**
@@ -36,7 +36,7 @@ public class ReportController extends Controller
   {
     // All reported residences will fall within this circle
     Circle circle = new Circle(latcenter, lngcenter, radius);
-    User user = Accounts.getCurrentUser();
+    Landlord landlord = Landlords.getCurrentLandlord();
     List<Residence> residences = new ArrayList<Residence>();
     // Fetch all residences and filter out those within circle
     List<Residence> residencesAll = Residence.findAll();
@@ -49,7 +49,7 @@ public class ReportController extends Controller
         Logger.info("Residence Added");
       }
     }
-    render("ReportController/report.html", user, circle, residences);
+    render("ReportController/report.html", landlord, circle, residences);
   }
 
   /**

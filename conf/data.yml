@@ -1,11 +1,11 @@
-User(homer):
+Landlord(homer):
     firstName: Homer
     lastName: Simpson
     email: homer@simpson.com
     password: secret
     dateRegistered: 2016-04-14t15:10:15.05
     
-User(marge):
+Landlord(marge):
     firstName: Marge
     lastName: Simpson
     email: marge@simpson.com
@@ -32,7 +32,7 @@ Residence(residence2):
     rented: true
     residenceType: studio    
     
-User(homer):
+Landlord(homer):
     firstName: Homer
     lastName: Simpson
     email: homer@simpson.com
@@ -40,7 +40,7 @@ User(homer):
     dateRegistered: 2016-04-14t15:10:15.05
     Residence:
                  -residence1
-User(marge):
+Landlord(marge):
     firstName: Marge
     lastName: Simpson
     email: marge@simpson.com
