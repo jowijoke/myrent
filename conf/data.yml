@@ -4,3 +4,47 @@ User(homer):
     email: homer@simpson.com
     password: secret
     dateRegistered: 2016-04-14t15:10:15.05
+    
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    password: secret
+    dateRegistered: 2016-05-16t17:12:13.02    
+
+Residence(residence1):
+    area: 100
+    from: homer 
+    geolocation: 53.5272736,-7.3285246
+    numberBathrooms: 2
+    numberBedrooms: 4
+    rent: 500
+    rented: true
+    residenceType: house
+    
+Residence(residence2):
+    area: 150
+    from: marge 
+    geolocation: 53.194043, -6.134672
+    numberBathrooms: 2
+    numberBedrooms: 3
+    rent: 600
+    rented: true
+    residenceType: studio    
+    
+User(homer):
+    firstName: Homer
+    lastName: Simpson
+    email: homer@simpson.com
+    password: secret
+    dateRegistered: 2016-04-14t15:10:15.05
+    Residence:
+                 -residence1
+User(marge):
+    firstName: Marge
+    lastName: Simpson
+    email: marge@simpson.com
+    password: secret
+    dateRegistered: 2016-05-16t17:12:13.02
+    Residence:
+                 -residence2

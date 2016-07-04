@@ -32,7 +32,7 @@
 			</tbody>
 		</table>
 
-		<table class="ui five column celled table segment">
+		<table class="ui eight column celled table segment">
 			<thead>
 				<tr>
 					<th>Residence Id</th>
@@ -41,6 +41,8 @@
 					<th>Rented?</th>
 					<th>Rent</th>
 					<th>Bedrooms</th>
+					<th>Bathrooms</th>
+					<th>Area (m<sup>2</sup>)</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -52,6 +54,8 @@
 					<td>${residence.rented}</td>
 					<td>${residence.rent}</td>
 					<td>${residence.numberBedrooms}</td>
+					<td>${residence.numberBathrooms}</td>
+					<td>${residence.area}</td>
 				</tr>
 				#{/list}
 			</tbody>
