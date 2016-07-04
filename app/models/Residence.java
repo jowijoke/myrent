@@ -16,21 +16,25 @@ public class Residence extends Model{
 	 
 		public boolean rented;
 		public String geolocation;
+		public int area;
 		public int rent;
 		public int numberBedrooms;
 		public String residenceType;
+		public int numberBathrooms;
 		
 		
 		@ManyToOne
 		public User from;
 		
-		public Residence(User from, String geolocation, boolean rented, int rent, int numberBedrooms, String residenceType)
+		public Residence(User from, String geolocation, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 		{
 			this.from = from;
 			this.geolocation = geolocation;
+			this.area = area;
 			this.rented = rented;
 			this.rent = rent;
 			this.numberBedrooms = numberBedrooms;
+			this.numberBathrooms = numberBathrooms;
 			this.residenceType = residenceType;
 		}
 
