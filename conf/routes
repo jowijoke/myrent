@@ -7,9 +7,9 @@ GET     /                                       Welcome.index
 
 # Landlords page
 GET    	/signup									Landlords.signup
-GET		/landlordlogin							Landlords.login
+GET		/landlords/login						Landlords.login
 GET		/logout									Landlords.logout
-POST	/landlords/authenticate							Landlords.authenticate
+POST	/landlords/authenticate					Landlords.authenticate
 POST	/register								Landlords.register
 
 # InputData page
