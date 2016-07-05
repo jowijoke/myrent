@@ -25,6 +25,7 @@ Tenant(barney):
     lastName: Gumble
     email: barney@gumble.com
     password: secret
+    dateRegistered: 2016-06-18t19:15:11.05
     Residence: null       
 
 Residence(residence1):
@@ -76,4 +77,5 @@ Tenant(barney):
     lastName: Gumble
     email: barney@gumble.com
     password: secret
-    Residence: residence1
+    dateRegistered: 2016-06-18t19:15:11.05
+    Residence: null
