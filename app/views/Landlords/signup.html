@@ -1,46 +1,47 @@
-#{extends 'main.html' /}
-#{set title:'Signup' /}
+#{extends 'main.html' /} #{set title:'Signup' /}
 
 <nav class="ui olive inverted menu">
-   <a class="ui item" href="/">Welcome</a>
-   <a class="ui active item" href="/landlords/signup">Sign Up</a>
-   <a class="ui item" href="/landlords/login">Landlord</a>
-   <a class="ui item" href="/inputdata">Input data</a>
-    <a class="ui item" href="/report">Report</a>
-    <a class="ui item" href="/contact">Contact</a>
-   <a class="ui item" href="/logout">Log Out</a>
- </nav>
- 
+	<a class="ui item" href="/">Welcome</a> <a class="ui active item"
+		href="/landlords/signup">Sign Up</a> <a class="ui item"
+		href="/landlords/login">Landlord</a> <a class="ui item"
+		href="/inputdata">Input data</a> <a class="ui item" href="/report">Report</a>
+	<a class="ui item" href="/contact">Contact</a> <a class="ui item"
+		href="/logout">Log Out</a>
+</nav>
+
 <section class="ui form">
 	<h3>Create a MyRent account</h3>
 	<h5>Register using a valid email address</h5>
 	<form action="landlords/register" method="POST">
-	  <div class="ui two column grid">
-	  <div class="column">
-	    <div class="ui equal width form">
-	      <div class="fields">
-	        <div class="field">
-	          <input placeholder="First Name" name="user.firstName" type="text" required>
-	        </div>
-	        <div class="field">
-	          <input placeholder="Last Name" name="user.lastName" type="text" required>
-	        </div>
-	      </div>
-	      <div class="field">
-          <input placeholder="Email" name="user.email" type="text" required>    
-          </div>
-          <div class="field">
-          <input placeholder="Password" name="user.password" type="text" required>
-          </div>
-        </div>
-	      <div class="field">
-	        <div class="ui inline checkbox">
-	          <input id="conditions" type="checkbox" required>
-	          <label for="conditions">I agree to the terms and conditions</label>
-	        </div>
-	     </div>
-	      <button type="submit" class="ui blue submit button">Submit</button>
-	     </div>
-	    </div>
+		<div class="ui two column grid">
+			<div class="column">
+				<div class="ui equal width form">
+					<div class="fields">
+						<div class="field">
+							<input placeholder="First Name" name="firstName" type="text"
+								required>
+						</div>
+						<div class="field">
+							<input placeholder="Last Name" name="lastName" type="text"
+								required>
+						</div>
+					</div>
+					<div class="field">
+						<input placeholder="Email" name="email" type="text" required>
+					</div>
+					<div class="field">
+						<input placeholder="Password" name="password" type="text"
+							required>
+					</div>
+				</div>
+				<div class="field">
+					<div class="ui inline checkbox">
+						<input id="conditions" type="checkbox" required> <label
+							for="conditions">I agree to the terms and conditions</label>
+					</div>
+				</div>
+				<button type="submit" class="ui blue submit button">Submit</button>
+			</div>
+		</div>
 	</form>
 </section>
