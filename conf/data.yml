@@ -18,7 +18,14 @@ Landlord(marge):
     address2: Dublin Rd
     city: Thomastown
     county: Kilkenny
-    dateRegistered: 2016-05-16t17:12:13.02    
+    dateRegistered: 2016-05-16t17:12:13.02 
+    
+Tenant(barney):
+    firstName: Barney
+    lastName: Gumble
+    email: barney@gumble.com
+    password: secret
+    Residence: null       
 
 Residence(residence1):
     area: 100
@@ -64,3 +71,9 @@ Landlord(marge):
     dateRegistered: 2016-05-16t17:12:13.02
     Residence:
                  -residence2
+Tenant(barney):
+    firstName: Barney
+    lastName: Gumble
+    email: barney@gumble.com
+    password: secret
+    Residence: residence1
