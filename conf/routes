@@ -8,11 +8,18 @@ GET     /                                       Welcome.index
 # Landlords page
 GET    	/signup									Landlords.signup
 GET		/landlords/login						Landlords.login
-GET		/logout									Landlords.logout
+GET		/landlords/logout						Landlords.logout
 POST	/landlords/authenticate					Landlords.authenticate
-POST	/register								Landlords.register
+POST	/landlords/register						Landlords.register
 GET		/landlords/editprofile					Landlords.editProfile
 POST    /landlords/editprofile/edit				Landlords.changeProfile
+
+# Tenants page
+GET		/tenants/signup							Tenants.signup
+GET		/tenants/login							Tenants.login
+GET 	/tenants/logout							Tenants.logout
+POST    /tenants/authenticate					Tenants.authenticate
+POST    /tenants/register						Tenants.register
 
 
 # InputData page

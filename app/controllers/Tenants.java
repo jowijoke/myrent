@@ -25,7 +25,7 @@ public class Tenants extends Controller {
 
 	public static void register(Tenant tenant) {
 		Logger.info(tenant.firstName + " " + tenant.lastName + " " + tenant.email
-				+ " " + tenant.password);
+				+ " " + tenant.password + " " + tenant.dateRegistered);
 		tenant.save();
 		login();
 	}
