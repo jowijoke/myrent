@@ -4,7 +4,6 @@ import play.*;
 import play.mvc.*;
 
 import models.*;
-import models.Landlord;
 
 public class Landlords extends Controller {
 	public static void signup() {
@@ -58,5 +57,38 @@ public class Landlords extends Controller {
 			Logger.info("Authentication failed");
 			login();
 		}
+	}
+	
+	public static void editProfile() {
+		
+		{
+			Landlord landlord = Landlords.getCurrentLandlord();
+			if (landlord == null)
+			{
+				Logger.info("InputData class : Unable to getCurrentLandlord");
+				Landlords.login();
+			}
+			else
+			{
+			Logger.info("Landed in InputData Page");
+			render(landlord);
+			}
+		}
+	}
+
+	public static void changeProfile(String firstName, String lastName, String address1, String address2, String city, String county ) {
+		String landlordId = session.get("logged_in_landlordid");
+		Landlord landlord = Landlord.findById(Long.parseLong(landlordId));
+		landlord.firstName = firstName;
+		landlord.lastName = lastName;
+		landlord.address1 = address1;
+		landlord.address2 = address2;
+		landlord.city = city;
+		landlord.county = county;
+			
+		landlord.save();
+		Logger.info("Profile saved");
+		InputData.index();
+
 	}
 }

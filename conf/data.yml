@@ -3,6 +3,10 @@ Landlord(homer):
     lastName: Simpson
     email: homer@simpson.com
     password: secret
+    address1: Springfield
+    address2: Dublin Rd 
+    city: Thomastown
+    county: Kilkenny
     dateRegistered: 2016-04-14t15:10:15.05
     
 Landlord(marge):
@@ -10,6 +14,10 @@ Landlord(marge):
     lastName: Simpson
     email: marge@simpson.com
     password: secret
+    address1: Springfield
+    address2: Dublin Rd
+    city: Thomastown
+    county: Kilkenny
     dateRegistered: 2016-05-16t17:12:13.02    
 
 Residence(residence1):
@@ -37,6 +45,10 @@ Landlord(homer):
     lastName: Simpson
     email: homer@simpson.com
     password: secret
+    address1: Springfield
+    address2: Dublin Rd 
+    city: Thomastown
+    county: Kilkenny
     dateRegistered: 2016-04-14t15:10:15.05
     Residence:
                  -residence1
@@ -45,6 +57,10 @@ Landlord(marge):
     lastName: Simpson
     email: marge@simpson.com
     password: secret
+    address1: Springfield
+    address2: Dublin Rd 
+    city: Thomastown
+    county: Kilkenny
     dateRegistered: 2016-05-16t17:12:13.02
     Residence:
                  -residence2

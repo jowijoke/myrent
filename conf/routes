@@ -11,6 +11,9 @@ GET		/landlords/login						Landlords.login
 GET		/logout									Landlords.logout
 POST	/landlords/authenticate					Landlords.authenticate
 POST	/register								Landlords.register
+GET		/landlords/editprofile					Landlords.editProfile
+POST    /landlords/editprofile/edit				Landlords.changeProfile
+
 
 # InputData page
 GET		/inputdata								InputData.index
