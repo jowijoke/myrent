@@ -1,13 +1,11 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
-import utils.LatLng;
-
-import java.util.Date;
-
-import models.*;
 import org.json.simple.JSONObject;
+
+import models.Landlord;
+import models.Residence;
+import play.Logger;
+import play.mvc.Controller;
 
 public class InputData extends Controller {
 	public static void index() 

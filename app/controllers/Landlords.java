@@ -21,7 +21,19 @@ public class Landlords extends Controller {
 	}
 
 	public static void index() {
-		render();
+		{
+			Landlord landlord = Landlords.getCurrentLandlord();
+			if (landlord == null)
+			{
+				Logger.info("InputData class : Unable to getCurrentLandlord");
+				Landlords.login();
+			}
+			else
+			{
+			Logger.info("Landed in Landlord Page");
+			render(landlord);
+			}
+		}
 	}
 
 	public static void register(Landlord landlord) {
