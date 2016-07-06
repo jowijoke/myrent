@@ -4,6 +4,7 @@ import play.*;
 import play.mvc.*;
 
 import models.*;
+import java.util.*;
 
 public class Landlords extends Controller {
 	public static void signup() {
@@ -25,13 +26,15 @@ public class Landlords extends Controller {
 			Landlord landlord = Landlords.getCurrentLandlord();
 			if (landlord == null)
 			{
-				Logger.info("InputData class : Unable to getCurrentLandlord");
+				Logger.info("Landlord class : Unable to getCurrentLandlord");
 				Landlords.login();
 			}
 			else
 			{
-			Logger.info("Landed in Landlord Page");
-			render(landlord);
+				List<Residence> residenceAll = new ArrayList();
+				residenceAll = Residence.findById(landlord.id);
+				Logger.info("Landed in Landlord Page");
+				render(landlord, residenceAll);
 			}
 		}
 	}

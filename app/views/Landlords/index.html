@@ -52,7 +52,9 @@
 					<div class="default text">Edit Residence</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
-						<div class="item" data-value="T12 X466">T12 X466</div>
+					#{list items: residenceAll, as:'residence'}
+						<div class="item" data-value="${residence.id}">${residence.id}</div>
+					#{/list}
 					</div>
 				</div>
 
