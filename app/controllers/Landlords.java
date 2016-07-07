@@ -111,7 +111,7 @@ public class Landlords extends Controller {
 			
 		landlord.save();
 		Logger.info("Profile saved");
-		InputData.index();
+		Landlords.index();
 
 	}
 }
