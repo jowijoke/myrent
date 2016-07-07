@@ -31,10 +31,18 @@ public class Landlords extends Controller {
 			}
 			else
 			{
-				List<Residence> residenceAll = new ArrayList();
-				residenceAll = Residence.findById(landlord.id);
+				List<Residence> residenceAll = Residence.findAll();
+				List<Residence> landlordId = new ArrayList();
+				for (Residence res : residenceAll){
+					
+					if (landlord.id == res.from.id){
+						
+						landlordId.add(res);
+					}
+				}
+				
 				Logger.info("Landed in Landlord Page");
-				render(landlord, residenceAll);
+				render(landlord, landlordId);
 			}
 		}
 	}

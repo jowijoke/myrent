@@ -16,7 +16,6 @@
 						Residence</button>
 				</div>
 			</form>
-
 			<form class="ui form segment" action="/landlords/deleteresidence"
 				method="POST">
 				<div class="ui fluid selection dropdown" id="deleteresidence">
@@ -24,7 +23,9 @@
 					<div class="default text">Select residence to delete</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
-						<div class="item" data-value="T12 X466">T12 X466</div>
+						#{list items: landlordId, as:'residence'}
+						<div class="item" data-value="${residence.id}">${residence.id}</div>
+						#{/list}
 					</div>
 				</div>
 				<div class="ui fluid form segment">
@@ -44,7 +45,6 @@
 				</div>
 			</form>
 
-			<!-- Edit Residence -->
 			<form class="ui form segment" action="/landlords/editresidence"
 				method="POST">
 				<div class="ui fluid selection dropdown" id="editresidence">
@@ -52,9 +52,9 @@
 					<div class="default text">Edit Residence</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
-					#{list items: residenceAll, as:'residence'}
+						#{list items: landlordId, as:'residence'}
 						<div class="item" data-value="${residence.id}">${residence.id}</div>
-					#{/list}
+						#{/list}
 					</div>
 				</div>
 
