@@ -88,12 +88,12 @@ public class Landlords extends Controller {
 			Landlord landlord = Landlords.getCurrentLandlord();
 			if (landlord == null)
 			{
-				Logger.info("InputData class : Unable to getCurrentLandlord");
+				Logger.info("Landlords class : Unable to getCurrentLandlord");
 				Landlords.login();
 			}
 			else
 			{
-			Logger.info("Landed in InputData Page");
+			Logger.info("Landed in editProfile Page");
 			render(landlord);
 			}
 		}
@@ -113,5 +113,33 @@ public class Landlords extends Controller {
 		Logger.info("Profile saved");
 		Landlords.index();
 
+	}
+	
+	public static void editResidence(){
+		{
+				Landlord landlord = Landlords.getCurrentLandlord();
+				if (landlord == null)
+				{
+					Logger.info("Landlord class : Unable to getCurrentLandlord");
+					Landlords.login();
+				}
+				else
+				{
+					List<Residence> residenceAll = Residence.findAll();
+					List<Residence> landlordId = new ArrayList();
+					for (Residence res : residenceAll){
+						
+						if (landlord.id == res.from.id){
+							
+							landlordId.add(res);
+						}
+						
+					}
+					
+					Logger.info("Landed in editResidence Page");
+					render(landlord, landlordId);
+				}
+		}
+		
 	}
 }

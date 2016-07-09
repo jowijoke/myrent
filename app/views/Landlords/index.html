@@ -12,7 +12,7 @@
 		<div class="column">
 			<form action="/inputdata" method="GET">
 				<div class="ui fluid form segment">
-					<button type="submit" class="ui fluid   blue submit button">Add
+					<button type="submit" class="ui fluid blue submit button">Add
 						Residence</button>
 				</div>
 			</form>
@@ -53,16 +53,15 @@
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						#{list items: landlordId, as:'residence'}
-						<div class="item" data-value="${residence.id}">${residence.id}</div>
+						<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
 						#{/list}
 					</div>
 				</div>
 
-				<div class="ui fluid form segment">
-					<button type="submit" class="ui fluid blue submit button">Edit
-						residence</button>
-				</div>
-				<div class="ui error message"></div>
+				 <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Edit residence</button>
+        </div>	
+        <div class="ui error message"></div>	
 			</form>
 
 		</div>

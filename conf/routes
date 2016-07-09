@@ -13,6 +13,7 @@ POST	/landlords/authenticate					Landlords.authenticate
 POST	/landlords/register						Landlords.register
 GET		/landlords/editprofile					Landlords.editProfile
 POST    /landlords/editprofile/edit				Landlords.changeProfile
+POST	/landlords/editresidence(residence.eircode)	Landlords.editResidence
 
 # Tenants page
 GET		/tenants/signup							Tenants.signup

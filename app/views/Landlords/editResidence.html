@@ -1,0 +1,36 @@
+#{extends 'main.html' /} #{set title:'EditResidence' /}
+
+<section class="ui segment">
+	<form class="ui form" action="/landlords/updateresidence" method="POST">
+	<!-- <form class="ui form"> -->
+		<h4>Please update residence data</h4>
+		<div class="ui one column grid">
+			<div class="column">
+				<!--   The monthly rent  -->
+				<div class="ui three column grid">
+				  <div class="column">
+            <div class="ui form segment">
+              <div class="ui fluid labeled input">
+                <div class="ui label">Eircode</div>
+                <input readonly value="${residence.eircode}" name="eircode" type="text">
+              </div>
+            </div>
+          </div>
+					<div class="column">
+						<div class="ui form segment">
+							<div class="ui fluid labeled input">
+								<div class="ui label">Monthly rent (&euro;)</div>
+								<input value="${residence.rent}" name="rent" type="text">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--   Submit form button  -->
+				<div class="form-actions">
+					 <button type="submit" class="ui blue submit button">Update data</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
