@@ -47,4 +47,9 @@ public class Residence extends Model{
 			return LatLng.toLatLng(geolocation);
 			
 		}
+		
+		public String getEircode(){
+		return (eircode);
+		}
+		
 }

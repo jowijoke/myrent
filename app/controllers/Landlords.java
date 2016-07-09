@@ -99,7 +99,8 @@ public class Landlords extends Controller {
 		}
 	}
 
-	public static void changeProfile(String firstName, String lastName, String address1, String address2, String city, String county ) {
+	public static void changeProfile(String firstName, String lastName, String address1, String address2, String city, String county ) 
+	{
 		String landlordId = session.get("logged_in_landlordid");
 		Landlord landlord = Landlord.findById(Long.parseLong(landlordId));
 		landlord.firstName = firstName;
@@ -115,7 +116,7 @@ public class Landlords extends Controller {
 
 	}
 	
-	public static void editResidence(){
+	public static void editResidence(String eircode, int rent)
 		{
 				Landlord landlord = Landlords.getCurrentLandlord();
 				if (landlord == null)
@@ -126,20 +127,17 @@ public class Landlords extends Controller {
 				else
 				{
 					List<Residence> residenceAll = Residence.findAll();
-					List<Residence> landlordId = new ArrayList();
+					List<Residence> code = new ArrayList();
 					for (Residence res : residenceAll){
-						
-						if (landlord.id == res.from.id){
-							
-							landlordId.add(res);
+						String residenceEircode = res.getEircode();
+						if (residenceEircode == eircode){
+							code.add(res);				
 						}
 						
 					}
 					
 					Logger.info("Landed in editResidence Page");
-					render(landlord, landlordId);
+					render(landlord, code);
 				}
 		}
-		
-	}
 }
