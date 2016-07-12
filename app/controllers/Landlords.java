@@ -116,7 +116,7 @@ public class Landlords extends Controller {
 
 	}
 	
-	public static void editResidence(String eircode, int rent)
+	public static void editResidence(String eircode)
 		{
 				Landlord landlord = Landlords.getCurrentLandlord();
 				if (landlord == null)
@@ -127,17 +127,16 @@ public class Landlords extends Controller {
 				else
 				{
 					List<Residence> residenceAll = Residence.findAll();
-					List<Residence> code = new ArrayList();
+					List<Residence> editRes = new ArrayList();
 					for (Residence res : residenceAll){
-						String residenceEircode = res.getEircode();
-						if (residenceEircode == eircode){
-							code.add(res);				
+						if (eircode.equals(res.eircode)){
+							editRes.add(res);
 						}
 						
 					}
 					
 					Logger.info("Landed in editResidence Page");
-					render(landlord, code);
+					render(landlord, editRes);
 				}
 		}
 }

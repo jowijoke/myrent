@@ -8,7 +8,7 @@ Landlord(homer):
     city: Thomastown
     county: Kilkenny
     dateRegistered: 2016-04-14t15:10:15.05
-    
+
 Landlord(marge):
     firstName: Marge
     lastName: Simpson
@@ -19,7 +19,7 @@ Landlord(marge):
     city: Thomastown
     county: Kilkenny
     dateRegistered: 2016-05-16t17:12:13.02 
-    
+
 Tenant(barney):
     firstName: Barney
     lastName: Gumble
@@ -38,7 +38,7 @@ Residence(residence1):
     rent: 500
     rented: true
     residenceType: house
-    
+
 Residence(residence2):
     area: 150
     from: homer 
@@ -48,8 +48,19 @@ Residence(residence2):
     numberBedrooms: 3
     rent: 600
     rented: true
-    residenceType: studio    
+    residenceType: studio  
     
+Residence(residence3):
+    area: 180
+    from: marge 
+    geolocation: 53.194063, -6.134572
+    eircode: P62R538
+    numberBathrooms: 3
+    numberBedrooms: 4
+    rent: 800
+    rented: true
+    residenceType: flat      
+
 Landlord(homer):
     firstName: Homer
     lastName: Simpson
@@ -63,7 +74,7 @@ Landlord(homer):
     Residence:
                  -residence1
                  -residence2
-                 
+
 Landlord(marge):
     firstName: Marge
     lastName: Simpson
@@ -75,7 +86,9 @@ Landlord(marge):
     county: Kilkenny
     dateRegistered: 2016-05-16t17:12:13.02
     Residence:
-                 
+                -residence3
+               
+
 Tenant(barney):
     firstName: Barney
     lastName: Gumble

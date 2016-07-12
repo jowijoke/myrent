@@ -48,12 +48,12 @@
 			<form class="ui form segment" action="/landlords/editresidence"
 				method="POST">
 				<div class="ui fluid selection dropdown" id="editresidence">
-					<input name="eircode_edit" type="hidden">
+					<input name="eircode" type="hidden">
 					<div class="default text">Edit Residence</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						#{list items: landlordId, as:'residence'}
-						<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
+						<div class="item" name="eircode" data-value="${residence.eircode}">${residence.eircode}</div>
 						#{/list}
 					</div>
 				</div>

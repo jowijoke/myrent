@@ -48,8 +48,4 @@ public class Residence extends Model{
 			
 		}
 		
-		public String getEircode(){
-		return (eircode);
-		}
-		
 }

@@ -1,8 +1,16 @@
 #{extends 'main.html' /} #{set title:'EditResidence' /}
 
+<nav class="ui olive inverted menu">
+	<a class="ui item" href="/">Home</a>
+	<a class="ui item" href="/landlords/landlord">Landlord</a>
+  <a class="ui item" href="/contact">Contact</a>
+  <a class="ui item" href="/landlords/logout">Logout</a>
+
+</nav>
+
+
 <section class="ui segment">
 	<form class="ui form" action="/landlords/updateresidence" method="POST">
-	<!-- <form class="ui form"> -->
 		<h4>Please update residence data</h4>
 		<div class="ui one column grid">
 			<div class="column">
@@ -12,7 +20,9 @@
             <div class="ui form segment">
               <div class="ui fluid labeled input">
                 <div class="ui label">Eircode</div>
-                <input readonly value="${residenceEircode}" name="eircode" type="text">
+                
+                <input readonly value="${editRes.eircode}" name="eircode" type="text">
+                
               </div>
             </div>
           </div>
@@ -20,7 +30,9 @@
 						<div class="ui form segment">
 							<div class="ui fluid labeled input">
 								<div class="ui label">Monthly rent (&euro;)</div>
-								<input value="${residenceEircode}" name="rent" type="text">
+								
+								<input value="${editRes.rent}" name="rent" type="text">
+								
 							</div>
 						</div>
 					</div>
