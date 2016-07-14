@@ -43,7 +43,10 @@ public class Landlords extends Controller {
 				List<Residence> landlordId = new ArrayList();
 				for (Residence res : residenceAll){
 					
-					if (landlord.id == res.from.id){
+					//stating if logged in landlord's id equals to residences with the same 'from' id  
+					
+					if (landlord.id == res.from.id) 
+					{
 						
 						landlordId.add(res);
 					}
@@ -137,9 +140,18 @@ public class Landlords extends Controller {
 	
 	{
 		Residence residence = Residence.findByEircode(eircode);
+		Logger.info("Opening editResidence page for eircode " + eircode);
 		render(residence);
 	}
 	
-	
+	public static void updateResidence(String eircode, int rent)
+	{
+		Residence residence = Residence.findByEircode(eircode);
+		Logger.info("Updating residence " + eircode + " rent to : " + rent);
+		residence.rent = rent;
+		residence.save();
+		Logger.info("Residence " + eircode + "Updated");
+		Landlords.index();
+	}
 	
 }
