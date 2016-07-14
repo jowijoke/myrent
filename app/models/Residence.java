@@ -39,6 +39,9 @@ public class Residence extends Model{
 			this.numberBathrooms = numberBathrooms;
 			this.residenceType = residenceType;
 		}
+		public static Residence findByEircode(String eircode) {
+			return find("eircode", eircode).first();
+		}
 
 		/*
 		 * Send String geolocation to LatLng.java to change geolocaton's primitive data type.
@@ -48,4 +51,7 @@ public class Residence extends Model{
 			
 		}
 		
-}
+		
+		
+		}
+		

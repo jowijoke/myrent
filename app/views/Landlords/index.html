@@ -19,12 +19,12 @@
 			<form class="ui form segment" action="/landlords/deleteresidence"
 				method="POST">
 				<div class="ui fluid selection dropdown" id="deleteresidence">
-					<input name="eircode_delete" type="hidden">
+					<input name="eircode" type="hidden">
 					<div class="default text">Select residence to delete</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						#{list items: landlordId, as:'residence'}
-						<div class="item" data-value="${residence.id}">${residence.id}</div>
+						<div class="item" data-value=${residence.id}>${residence.id}</div>
 						#{/list}
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 					<i class="dropdown icon"></i>
 					<div class="menu">
 						#{list items: landlordId, as:'residence'}
-						<div class="item" name="eircode" data-value="${residence.eircode}">${residence.eircode}</div>
+						<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
 						#{/list}
 					</div>
 				</div>

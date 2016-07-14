@@ -6,6 +6,14 @@ import play.mvc.*;
 import models.*;
 import java.util.*;
 
+/**
+ * @author User
+ *
+ */
+/**
+ * @author User
+ *
+ */
 public class Landlords extends Controller {
 	public static void signup() {
 		render();
@@ -82,6 +90,9 @@ public class Landlords extends Controller {
 		}
 	}
 	
+/**
+ * Render edit Profile page for landlord to edit their profile.
+ */
 	public static void editProfile() {
 		
 		{
@@ -99,6 +110,7 @@ public class Landlords extends Controller {
 		}
 	}
 
+	
 	public static void changeProfile(String firstName, String lastName, String address1, String address2, String city, String county ) 
 	{
 		String landlordId = session.get("logged_in_landlordid");
@@ -116,27 +128,18 @@ public class Landlords extends Controller {
 
 	}
 	
+	
+	/**
+	 * Render edit Residence page using the eircode the landlord has chosen
+	 * @param eircode
+	 */
 	public static void editResidence(String eircode)
-		{
-				Landlord landlord = Landlords.getCurrentLandlord();
-				if (landlord == null)
-				{
-					Logger.info("Landlord class : Unable to getCurrentLandlord");
-					Landlords.login();
-				}
-				else
-				{
-					List<Residence> residenceAll = Residence.findAll();
-					List<Residence> editRes = new ArrayList();
-					for (Residence res : residenceAll){
-						if (eircode.equals(res.eircode)){
-							editRes.add(res);
-						}
-						
-					}
-					
-					Logger.info("Landed in editResidence Page");
-					render(landlord, editRes);
-				}
-		}
+	
+	{
+		Residence residence = Residence.findByEircode(eircode);
+		render(residence);
+	}
+	
+	
+	
 }
