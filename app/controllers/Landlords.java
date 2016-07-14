@@ -131,6 +131,14 @@ public class Landlords extends Controller {
 
 	}
 	
+	public static void deleteResidence(String eircode)
+	{
+	
+		Residence residence = Residence.findByEircode(eircode);
+	    residence.delete();
+	    index();
+	}
+	
 	
 	/**
 	 * Render edit Residence page using the eircode the landlord has chosen

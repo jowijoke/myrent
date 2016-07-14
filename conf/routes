@@ -13,6 +13,7 @@ POST	/landlords/authenticate					Landlords.authenticate
 POST	/landlords/register						Landlords.register
 GET		/landlords/editprofile					Landlords.editProfile
 POST    /landlords/editprofile/edit				Landlords.changeProfile
+POST	/landlords/deleteresidence				Landlords.deleteResidence
 POST	/landlords/editresidence				Landlords.editResidence
 POST	/landlords/updateresidence				Landlords.updateResidence
 
