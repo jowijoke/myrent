@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import controllers.Landlords;
 import play.Logger;
@@ -25,11 +26,14 @@ public class Residence extends Model{
 		
 		
 		@ManyToOne
-		public Landlord from;
+		public Landlord landlord;
 		
-		public Residence(Landlord from, String geolocation,String eircode, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
+		@OneToOne(mappedBy = "residence")
+		public Tenant tenant;
+		
+		public Residence(Landlord landlord, String geolocation,String eircode, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 		{
-			this.from = from;
+			this.landlord = landlord;
 			this.geolocation = geolocation;
 			this.eircode = eircode;
 			this.area = area;

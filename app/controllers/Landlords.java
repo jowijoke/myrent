@@ -45,7 +45,7 @@ public class Landlords extends Controller {
 					
 					//stating if logged in landlord's id equals to residences with the same 'from' id  
 					
-					if (landlord.id == res.from.id) 
+					if (landlord.id == res.landlord.id) 
 					{
 						
 						landlordId.add(res);

@@ -23,8 +23,8 @@ public class Landlord extends Model {
 	public String county;
 	public Date dateRegistered;
 	
-	@OneToMany(mappedBy = "from" , cascade = CascadeType.ALL)
-	List<Residence> rent = new ArrayList<Residence>();
+	@OneToMany(mappedBy = "landlord" , cascade = CascadeType.ALL)
+	public List<Residence> residences = new ArrayList<Residence>();
 	
 	
 	public Landlord(String firstName, String lastName, String email, String password, String address1, String address2, String city, String county) 
