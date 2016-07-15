@@ -36,7 +36,7 @@ public static void capture(String geolocation, String eircode, int area, int ren
 	{
 		addData(landlord, geolocation, eircode, area, rent, numberBedrooms, numberBathrooms, residenceType);
 	}
-	//index();
+	
 		JSONObject obj = new JSONObject();
 	    String value = "<div class=\"ui tertiary inverted green fluid form segment\">"
 	    		+ "Congratulations. You have successfully registered your " + residenceType +".</div>";

@@ -21,7 +21,6 @@ public class Landlord extends Model {
 	public String address2;
 	public String city;
 	public String county;
-	public Date dateRegistered;
 	
 	@OneToMany(mappedBy = "landlord" , cascade = CascadeType.ALL)
 	public List<Residence> residences = new ArrayList<Residence>();
@@ -37,7 +36,6 @@ public class Landlord extends Model {
 		this.address2 = address2;
 		this.city = city;
 		this.county = county;
-		dateRegistered = new Date();
 
 	}
 

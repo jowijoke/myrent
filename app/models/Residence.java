@@ -22,6 +22,7 @@ public class Residence extends Model{
 		public String residenceType;
 		public int numberBathrooms;
 		public String eircode;
+		public Date dateRegistered;
 		
 		
 		@ManyToOne
@@ -40,6 +41,7 @@ public class Residence extends Model{
 			this.numberBedrooms = numberBedrooms;
 			this.numberBathrooms = numberBathrooms;
 			this.residenceType = residenceType;
+			dateRegistered = new Date();
 		}
 		
 		public static Residence findByEircode(String eircode) {

@@ -7,7 +7,6 @@ Landlord(homer):
     address2: Dublin Rd 
     city: Thomastown
     county: Kilkenny
-    dateRegistered: 2016-04-14t15:10:15.05
     residences: [residence1, residence2]
 
 Landlord(marge):
@@ -19,11 +18,11 @@ Landlord(marge):
     address2: Dublin Rd 
     city: Thomastown
     county: Kilkenny
-    dateRegistered: 2016-05-16t17:12:13.02
     residences: [residence3]
 
 Residence(residence1):
     area: 100
+    dateRegistered: 2016-04-14t15:10:15.05
     landlord: homer
     geolocation: 53.5272736,-7.3285246
     eircode: L14E542
@@ -34,6 +33,7 @@ Residence(residence1):
 
 Residence(residence2):
     area: 150
+    dateRegistered: 2016-05-16t17:12:13.02
     landlord: homer 
     geolocation: 53.194043, -6.134672
     eircode: O54Q748
@@ -45,6 +45,7 @@ Residence(residence2):
 
 Residence(residence3):
     area: 180
+    dateRegistered: 2016-06-18t19:15:11.05
     geolocation: 53.194063, -6.134572
     eircode: P62R538
     numberBathrooms: 3
@@ -58,5 +59,4 @@ Tenant(barney):
     lastName: Gumble
     email: barney@gumble.com
     password: secret
-    dateRegistered: 2016-06-18t19:15:11.05
     residence: residence2

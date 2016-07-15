@@ -17,7 +17,6 @@ import play.db.jpa.Model;
 		public String lastName;
 		public String email;
 		public String password;
-		public Date dateRegistered;
 		
 		@OneToOne
 		public Residence residence;
@@ -28,7 +27,6 @@ import play.db.jpa.Model;
 			this.lastName = lastName;
 			this.email = email;
 			this.password = password;
-			dateRegistered = new Date();
 
 		}
 
