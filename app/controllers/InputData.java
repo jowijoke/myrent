@@ -23,9 +23,9 @@ public class InputData extends Controller {
 		}
 	}
 
-public static void capture(String geolocation, String eircode, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
+public static void capture(String geolocation, String eircode, int area, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 {	
-	Logger.info("data recorded: " + "geolocation: "  + geolocation + " area: " + area + " rented: " + rented + " rent: " + rent + " numberBedrooms: " + numberBedrooms  + " numberBathrooms: " + numberBathrooms + " residenceType: " + residenceType);	
+	Logger.info("data recorded: " + "geolocation: "  + geolocation + " area: " + area + " rent: " + rent + " numberBedrooms: " + numberBedrooms  + " numberBathrooms: " + numberBathrooms + " residenceType: " + residenceType);	
 	Landlord landlord = Landlords.getCurrentLandlord();
 	if(landlord == null)
 	{
@@ -34,7 +34,7 @@ public static void capture(String geolocation, String eircode, int area, boolean
 	}
 	else
 	{
-		addData(landlord, geolocation, eircode, area, rented, rent, numberBedrooms, numberBathrooms, residenceType);
+		addData(landlord, geolocation, eircode, area, rent, numberBedrooms, numberBathrooms, residenceType);
 	}
 	//index();
 		JSONObject obj = new JSONObject();
@@ -44,9 +44,9 @@ public static void capture(String geolocation, String eircode, int area, boolean
 	    renderJSON(obj);
 }
 
-private static void addData(Landlord landlord, String geolocation, String eircode, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
+private static void addData(Landlord landlord, String geolocation, String eircode, int area, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 {
-	Residence input = new Residence(landlord, geolocation, eircode, area, rented, rent, numberBedrooms, numberBathrooms, residenceType);
+	Residence input = new Residence(landlord, geolocation, eircode, area, rent, numberBedrooms, numberBathrooms, residenceType);
 	input.save();
 	Logger.info("Residence saved");
 }

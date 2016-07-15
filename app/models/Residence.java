@@ -15,7 +15,6 @@ import utils.LatLng;
 @Entity
 public class Residence extends Model{
 	 
-		public boolean rented;
 		public String geolocation;
 		public int area;
 		public int rent;
@@ -31,18 +30,18 @@ public class Residence extends Model{
 		@OneToOne(mappedBy = "residence")
 		public Tenant tenant;
 		
-		public Residence(Landlord landlord, String geolocation,String eircode, int area, boolean rented, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
+		public Residence(Landlord landlord, String geolocation,String eircode, int area, int rent, int numberBedrooms, int numberBathrooms, String residenceType)
 		{
 			this.landlord = landlord;
 			this.geolocation = geolocation;
 			this.eircode = eircode;
 			this.area = area;
-			this.rented = rented;
 			this.rent = rent;
 			this.numberBedrooms = numberBedrooms;
 			this.numberBathrooms = numberBathrooms;
 			this.residenceType = residenceType;
 		}
+		
 		public static Residence findByEircode(String eircode) {
 			return find("eircode", eircode).first();
 		}
