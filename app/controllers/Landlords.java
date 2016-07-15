@@ -133,9 +133,12 @@ public class Landlords extends Controller {
 	
 	public static void deleteResidence(String eircode)
 	{
-	
+		Landlord landlord = Landlords.getCurrentLandlord();
 		Residence residence = Residence.findByEircode(eircode);
-	    residence.delete();
+		landlord.residences.remove(residence);// removing residence from the Landlord's List of residences.
+	    landlord.save(); // Updating landlord's list with the old residence removed.
+	    residence.delete();//deleting residence form the dataabse in the residence model.
+
 	    index();
 	}
 	

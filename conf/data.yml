@@ -8,6 +8,7 @@ Landlord(homer):
     city: Thomastown
     county: Kilkenny
     dateRegistered: 2016-04-14t15:10:15.05
+    residences: [residence1, residence2]
 
 Landlord(marge):
     firstName: Marge
@@ -15,22 +16,15 @@ Landlord(marge):
     email: marge@simpson.com
     password: secret
     address1: Springfield
-    address2: Dublin Rd
+    address2: Dublin Rd 
     city: Thomastown
     county: Kilkenny
-    dateRegistered: 2016-05-16t17:12:13.02 
-
-Tenant(barney):
-    firstName: Barney
-    lastName: Gumble
-    email: barney@gumble.com
-    password: secret
-    dateRegistered: 2016-06-18t19:15:11.05
-    Residence: null       
+    dateRegistered: 2016-05-16t17:12:13.02
+    residences: [residence3]
 
 Residence(residence1):
     area: 100
-    landlord: homer 
+    landlord: homer
     geolocation: 53.5272736,-7.3285246
     eircode: L14E542
     numberBathrooms: 2
@@ -48,46 +42,19 @@ Residence(residence2):
     numberBedrooms: 3
     rent: 600
     rented: true
-    residenceType: studio  
-    
+    residenceType: studio 
+    tenant: barney
+
 Residence(residence3):
     area: 180
-    landlord: marge 
     geolocation: 53.194063, -6.134572
     eircode: P62R538
     numberBathrooms: 3
     numberBedrooms: 4
     rent: 800
     rented: true
-    residenceType: flat      
-
-Landlord(homer):
-    firstName: Homer
-    lastName: Simpson
-    email: homer@simpson.com
-    password: secret
-    address1: Springfield
-    address2: Dublin Rd 
-    city: Thomastown
-    county: Kilkenny
-    dateRegistered: 2016-04-14t15:10:15.05
-    Residence:
-                 -residence1
-                 -residence2
-
-Landlord(marge):
-    firstName: Marge
-    lastName: Simpson
-    email: marge@simpson.com
-    password: secret
-    address1: Springfield
-    address2: Dublin Rd 
-    city: Thomastown
-    county: Kilkenny
-    dateRegistered: 2016-05-16t17:12:13.02
-    Residence:
-                -residence3
-               
+    residenceType: flat
+    landlord: marge 
 
 Tenant(barney):
     firstName: Barney
@@ -95,4 +62,4 @@ Tenant(barney):
     email: barney@gumble.com
     password: secret
     dateRegistered: 2016-06-18t19:15:11.05
-    Residence: null
+    residence: residence2
