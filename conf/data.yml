@@ -30,7 +30,6 @@ Residence(residence1):
     numberBathrooms: 2
     numberBedrooms: 4
     rent: 500
-    rented: true
     residenceType: house
 
 Residence(residence2):
@@ -41,7 +40,6 @@ Residence(residence2):
     numberBathrooms: 2
     numberBedrooms: 3
     rent: 600
-    rented: true
     residenceType: studio 
     tenant: barney
 
@@ -52,7 +50,6 @@ Residence(residence3):
     numberBathrooms: 3
     numberBedrooms: 4
     rent: 800
-    rented: true
     residenceType: flat
     landlord: marge 
 
