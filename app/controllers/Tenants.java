@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Landlord;
 import models.Tenant;
 import play.Logger;
 import play.mvc.Controller;
@@ -20,7 +21,16 @@ public class Tenants extends Controller {
 	}
 
 	public static void index() {
-		render();
+		Landlord landlord = Landlords.getCurrentLandlord();
+		if (landlord == null)
+		{
+			Logger.info("Landlord class : Unable to getCurrentLandlord");
+			Landlords.login();
+		}
+		else
+		{
+			
+		}
 	}
 
 	public static void register(Tenant tenant) {
