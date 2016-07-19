@@ -14,7 +14,7 @@ public class Tenants extends Controller {
 	}
 
 	public static void logout() {
-		session.clear();
+		session.remove("logged_in_tenantid");
 		Logger.info("tenant out");
 		Welcome.index();
 	}
