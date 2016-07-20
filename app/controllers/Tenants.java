@@ -19,7 +19,7 @@ public class Tenants extends Controller {
 	}
 
 	public static void logout() {
-		session.remove("logged_in_tenantid");
+		session.clear();
 		Logger.info("tenant out");
 		Welcome.index();
 	}
@@ -37,9 +37,9 @@ public class Tenants extends Controller {
 			List<Residence> unoccupied = new ArrayList();
 			for (Residence res : residenceAll){
 				
-				//stating if logged in landlord's id equals to residences with the same 'from' id  
+				//stating if a residence has no tenant, add it to the unoccupied arraylist.
 				
-				if (tenant.id != res.tenant.id) 
+				if (res.tenant == null) 
 				{
 					
 					unoccupied.add(res);
@@ -80,6 +80,7 @@ public class Tenants extends Controller {
 		if ((tenant != null) && (tenant.checkPassword(password) == true)) {
 			Logger.info("Successful authentication of " + tenant.firstName);
 			session.put("logged_in_tenantid", tenant.id);
+			Tenants.index();
 		} else {
 			Logger.info("Authentication failed");
 			login();

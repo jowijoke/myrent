@@ -23,25 +23,25 @@ Landlord(marge):
 Residence(residence1):
     area: 100
     dateRegistered: 2016-04-14t15:10:15.05
-    landlord: homer
-    tenant: ned
     geolocation: 53.5272736,-7.3285246
     eircode: L14E542
     numberBathrooms: 2
     numberBedrooms: 4
     rent: 500
     residenceType: house
+    landlord: homer
+    tenant: ned
 
 Residence(residence2):
     area: 150
     dateRegistered: 2016-05-16t17:12:13.02
-    landlord: homer 
     geolocation: 53.194043, -6.134672
     eircode: O54Q748
     numberBathrooms: 2
     numberBedrooms: 3
     rent: 600
     residenceType: studio 
+    landlord: homer 
     tenant: barney
 
 Residence(residence3):
@@ -54,14 +54,6 @@ Residence(residence3):
     rent: 800
     residenceType: flat
     landlord: marge 
-    tenant: moe
-
-Tenant(ned):
-    firstName: Ned
-    lastName: Flanders
-    email: ned@flanders.com
-    password: secret
-    residence: residence1
 
 Tenant(barney):
     firstName: Barney
@@ -70,9 +62,11 @@ Tenant(barney):
     password: secret
     residence: residence2
 
-Tenant(moe):
-    firstName: Moe
-    lastName: Szyslak
-    email: moe@szyslak.com
+Tenant(ned):
+    firstName: Ned
+    lastName: Flanders
+    email: ned@flanders.com
     password: secret
-    residence: residence3
+    residence: residence1
+
+

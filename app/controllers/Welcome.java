@@ -8,6 +8,7 @@ import models.*;
 public class Welcome extends Controller {
 	public static void index() 
 	{
+		session.clear();
 		Logger.info("Landed in Welcome Page");
 		render();
 	}

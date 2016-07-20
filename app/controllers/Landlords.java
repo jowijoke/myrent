@@ -17,6 +17,7 @@ public class Landlords extends Controller {
 	}
 
 	public static void logout() {
+		
 		session.remove("logged_in_landlordid");
 		Logger.info("landlord out");
 		Welcome.index();
