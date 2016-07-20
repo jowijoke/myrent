@@ -24,6 +24,7 @@ Residence(residence1):
     area: 100
     dateRegistered: 2016-04-14t15:10:15.05
     landlord: homer
+    tenant: ned
     geolocation: 53.5272736,-7.3285246
     eircode: L14E542
     numberBathrooms: 2
@@ -53,6 +54,14 @@ Residence(residence3):
     rent: 800
     residenceType: flat
     landlord: marge 
+    tenant: moe
+
+Tenant(ned):
+    firstName: Ned
+    lastName: Flanders
+    email: ned@flanders.com
+    password: secret
+    residence: residence1
 
 Tenant(barney):
     firstName: Barney
@@ -60,3 +69,10 @@ Tenant(barney):
     email: barney@gumble.com
     password: secret
     residence: residence2
+
+Tenant(moe):
+    firstName: Moe
+    lastName: Szyslak
+    email: moe@szyslak.com
+    password: secret
+    residence: residence3

@@ -1,6 +1,10 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.Landlord;
+import models.Residence;
 import models.Tenant;
 import play.Logger;
 import play.mvc.Controller;
@@ -21,14 +25,29 @@ public class Tenants extends Controller {
 	}
 
 	public static void index() {
-		Landlord landlord = Landlords.getCurrentLandlord();
-		if (landlord == null)
+		Tenant tenant = Tenants.getCurrentTenant();
+		if (tenant == null)
 		{
-			Logger.info("Landlord class : Unable to getCurrentLandlord");
-			Landlords.login();
+			Logger.info("Tenant class : Unable to getCurrentTenant");
+			Tenants.login();
 		}
 		else
 		{
+			List<Residence> residenceAll = Residence.findAll();
+			List<Residence> unoccupied = new ArrayList();
+			for (Residence res : residenceAll){
+				
+				//stating if logged in landlord's id equals to residences with the same 'from' id  
+				
+				if (tenant.id != res.tenant.id) 
+				{
+					
+					unoccupied.add(res);
+				}
+			}
+			
+			Logger.info("Landed in Tenant Page");
+			render(tenant, unoccupied);
 			
 		}
 	}
@@ -61,7 +80,6 @@ public class Tenants extends Controller {
 		if ((tenant != null) && (tenant.checkPassword(password) == true)) {
 			Logger.info("Successful authentication of " + tenant.firstName);
 			session.put("logged_in_tenantid", tenant.id);
-			Welcome.index();
 		} else {
 			Logger.info("Authentication failed");
 			login();

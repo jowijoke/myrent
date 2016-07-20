@@ -16,7 +16,7 @@
             <div class="ui form segment">
               
                 <h5>Existing rental (eircode)</h5> 
-                <input id="eircode" value="" name="eircode" type="text">
+                <input id="eircode" readonly value="${tenant.residence.eircode}" name="eircode" type="text">
              
             </div>
       </section>
@@ -24,8 +24,7 @@
       <section class="ui segment">
         <h5>Press to end tenancy</h5>
         <form class="ui form" action="/tenants/endtenancy" method="POST">
-          <div class="ui fluid form segment">           
-            <!-- Terminate a tenancy - if it exists -->
+          <div class="ui fluid form segment">
             <button type="submit" class="ui blue fluid submit button">Terminate tenancy</button>
           </div>
         </form>
@@ -34,16 +33,18 @@
 
       <section class="ui segment">
         <h5>Select from vacant residences for new rental</h5>
-        <form class="ui form" action="/tenants/changetenancy" method="POST">
+        <form class ="ui form changeTenancy">
           <div class="ui fluid form segment">  
               <div class="ui fluid selection dropdown"
-                id="eircode">
-                <input name="eircode" type="hidden">
+                id="eircode_res">
+                <input name="eircode_unoccupied" type="hidden">
                 <div class="default text">Vacant residences</div>
                 <i class="dropdown icon"></i>
                 <div class="menu tenant">
-                                    <div class="item eircode" data-value=""></div>
-                                  </div>
+                #{list items: unoccupied, as:'residence'}
+                 <div class="item eircode" data-value="${residence.eircode}">${residence.eircode}</div>
+                #{/list}
+                </div>
               </div> 
           </div>
           <button type="submit" class="ui blue fluid submit button">Change Tenancy</button>
