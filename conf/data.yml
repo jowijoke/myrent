@@ -18,7 +18,7 @@ Landlord(marge):
     address2: Dublin Rd 
     city: Thomastown
     county: Kilkenny
-    residences: [residence3]
+    residences: [residence3, residence4]
 
 Residence(residence1):
     area: 100
@@ -55,6 +55,17 @@ Residence(residence3):
     residenceType: flat
     landlord: marge 
 
+Residence(residence4):
+    area: 180
+    dateRegistered: 2016-06-24t17:08:03.04
+    geolocation: 52.6863988,-7.2461272
+    eircode: E47T264
+    numberBathrooms: 2
+    numberBedrooms: 3
+    rent: 700
+    residenceType: house
+    landlord: marge 
+
 Tenant(barney):
     firstName: Barney
     lastName: Gumble
@@ -68,5 +79,11 @@ Tenant(ned):
     email: ned@flanders.com
     password: secret
     residence: residence1
+
+Tenant(moe):
+    firstName: Moe
+    lastName: Szyslak
+    email: moe@szyslak.com
+    password: secret
 
 

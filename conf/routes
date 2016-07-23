@@ -21,7 +21,7 @@ POST	/landlords/updateresidence				Landlords.updateResidence
 GET		/tenants/signup							Tenants.signup
 GET		/tenants/tenant							Tenants.index
 GET 	/tenants/logout							Tenants.logout
-POST    /tenants/authenticate					Tenants.authenticate
+POST    /tenants/authenticate					Tenants.authenticate			
 POST    /tenants/register						Tenants.register
 
 

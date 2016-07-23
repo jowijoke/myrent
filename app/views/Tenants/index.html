@@ -14,10 +14,10 @@
     <div class="column">
       <section class="ui segment">
             <div class="ui form segment">
-              
-                <h5>Existing rental (eircode)</h5> 
-                <input id="eircode" readonly value="${tenant.residence.eircode}" name="eircode" type="text">
-             
+             <h5>Existing rental (eircode)</h5> 
+             #{list items: tenantStatus, as:'residence'}
+                <input id="eircode" readonly value="${residence.eircode}" name="eircode" type="text">
+             #{/list}
             </div>
       </section>
 

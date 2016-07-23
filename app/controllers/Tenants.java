@@ -24,6 +24,7 @@ public class Tenants extends Controller {
 		Welcome.index();
 	}
 
+	
 	public static void index() {
 		Tenant tenant = Tenants.getCurrentTenant();
 		if (tenant == null)
@@ -35,20 +36,36 @@ public class Tenants extends Controller {
 		{
 			List<Residence> residenceAll = Residence.findAll();
 			List<Residence> unoccupied = new ArrayList();
-			for (Residence res : residenceAll){
+			for (Residence res : residenceAll)
+			{
 				
-				//stating if a residence has no tenant, add it to the unoccupied arraylist.
+				//stating if a residence has no tenant, add it to the unoccupied ArrayList.
 				
 				if (res.tenant == null) 
 				{
-					
 					unoccupied.add(res);
 				}
 			}
 			
-			Logger.info("Landed in Tenant Page");
-			render(tenant, unoccupied);
 			
+			List<Residence> tenantStatus = new ArrayList(); //an Arraylist stores Tenant's status whether they're renting or not.
+			for(Residence r : residenceAll)
+			{
+				 if (tenant.residence == null) // if a tenant is not renting
+				{
+					Residence msg = new Residence(null, null, "not renting", 0, 0, 0, 0, null); //create fake residence with message "not renting" as eircode.
+					tenantStatus.add(msg);
+					break; // make loop only run once
+				}
+				 
+				 else if (r.eircode == tenant.residence.eircode) // if tenant is renting, show the residence eircode
+				{
+					tenantStatus.add(r);
+				}
+				
+			}
+			Logger.info("Landed in Tenant Page");
+			render(tenant, unoccupied, tenantStatus);
 		}
 	}
 
