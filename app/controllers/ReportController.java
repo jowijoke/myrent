@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Residence;
+import models.Tenant;
 import models.Landlord;
 import play.Logger;
 import play.mvc.Before;
@@ -16,14 +17,14 @@ public class ReportController extends Controller
 {
   /**
    * This method executed before each action call in the controller.
-   * Checks that a landlord has logged in.
-   * If no landlord logged in the landlord is presented with the log in screen.
+   * Checks that a tenant has logged in.
+   * If no tenant logged in the tenant is presented with the log in screen.
    */
   @Before
   static void checkAuthentification()
   {
-    if(session.contains("logged_in_landlordid") == false)
-      Landlords.login();
+    if(session.contains("logged_in_tenantid") == false)
+      Tenants.login();
   }
 
   /**
@@ -36,20 +37,20 @@ public class ReportController extends Controller
   {
     // All reported residences will fall within this circle
     Circle circle = new Circle(latcenter, lngcenter, radius);
-    Landlord landlord = Landlords.getCurrentLandlord();
+    Tenant tenant = Tenants.getCurrentTenant();
     List<Residence> residences = new ArrayList<Residence>();
-    // Fetch all residences and filter out those within circle
+    // Fetch all residences and filter out those within circle and that are vacant
     List<Residence> residencesAll = Residence.findAll();
     for (Residence res : residencesAll)
     {
       LatLng residenceLocation = res.getGeolocation();
-      if (Geodistance.inCircle(residenceLocation, circle))
+      if (Geodistance.inCircle(residenceLocation, circle) && res.tenant == null )
       {
         residences.add(res);
         Logger.info("Residence Added");
       }
     }
-    render("ReportController/report.html", landlord, circle, residences);
+    render("ReportController/report.html", tenant, circle, residences);
   }
 
   /**

@@ -1,23 +1,21 @@
 #{extends 'main.html' /} #{set title:'report/generateReport' /}
 
 <nav class="ui olive inverted menu">
-	<a class="ui item" href="/">Welcome</a> <a class="ui item"
-		href="/signup">Sign Up</a> <a class="ui item" href="/landlords/landlord">Landlord</a>
-	<a class="ui item" href="/inputdata">Input data</a>
-	<a class="ui item" href="/landlords/editprofile">Edit Profile</a> 
-	<a class="ui active item" href="/report">Report</a>
-		<a class="ui item" href="/contact">Contact</a>
-		 <a class="ui item"	href="/logout">Log Out</a>
+	<a class="ui item" href="/">Welcome</a> 
+	<a class="ui item" href="/tenants/tenant">Tenant</a> 
+	<a class="ui active item" href="/tenants/tenant">Search Report</a>
+	<a class="ui item" href="/contact">Contact</a>
+	<a class="ui item"	href="/tenants/logout">Log Out</a>
 </nav>
 
 <section class="ui segment">
-	<h4>Report</h4>
+	<h4>Vacant Residence</h4>
 
 	<section class="ui segment">
 		<table class="ui table segment">
 			<thead>
 				<tr>
-					<th>Commissioned by</th>
+					<th>Tenant</th>
 					<th>Search: radius(m)</th>
 					<th>centre(latitude)</th>
 					<th>centre(longitude)</th>
@@ -25,7 +23,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>${landlord.firstName}</td>
+					<td>${tenant.firstName}</td>
 					<td>${circle.radius}</td>
 					<td>${circle.latcenter}</td>
 					<td>${circle.lngcenter}</td>
@@ -33,13 +31,11 @@
 			</tbody>
 		</table>
 
-		<table class="ui eight column celled table segment">
+		<table class="ui six column celled table segment">
 			<thead>
 				<tr>
-					<th>Residence Id</th>
-					<th>Residence User</th>
+					<th>Eircode</th>
 					<th>Date registered</th>
-					<th>Rented?</th>
 					<th>Rent</th>
 					<th>Bedrooms</th>
 					<th>Bathrooms</th>
@@ -49,10 +45,8 @@
 			<tbody>
 			#{list items: residences, as:'residence'}
 				<tr>
-					<td>${residence.id}</td>
-					<td>${residence.from.firstName}&nbsp${residence.from.lastName}</td>
+					<td>${residence.eircode}</td>
 					<td>${residence.dateRegistered}</td>
-					<td>${residence.rented}</td>
 					<td>${residence.rent}</td>
 					<td>${residence.numberBedrooms}</td>
 					<td>${residence.numberBathrooms}</td>

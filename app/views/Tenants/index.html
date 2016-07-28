@@ -12,23 +12,25 @@
 <section class="ui segment">
   <div class="ui three column grid">
     <div class="column">
-      <section class="ui segment">
-            <div class="ui form segment">
-             <h5>Existing rental (eircode)</h5> 
+      
+            
+            <form class="ui form" action="/tenants/endtenancy" method="POST">
+             <h5> Rental Status</h5> 
              #{list items: tenantStatus, as:'residence'}
                 <input id="eircode" readonly value="${residence.eircode}" name="eircode" type="text">
              #{/list}
-            </div>
-      </section>
+      
 
-      <section class="ui segment">
+      <div class="ui segment">
         <h5>Press to end tenancy</h5>
-        <form class="ui form" action="/tenants/endtenancy" method="POST">
+        
           <div class="ui fluid form segment">
-            <button type="submit" class="ui blue fluid submit button">Terminate tenancy</button>
+          #{list items: tenantStatus, as:'residence'}
+            <button type="submit" class="ui blue fluid submit button"> Terminate tenancy</button>
+          #{/list}
+          </div>
           </div>
         </form>
-      </section>
 
 
       <section class="ui segment">
@@ -53,11 +55,11 @@
       </section>
     </div>
     <div class="column">
-      <form action="/search/search_results" method="POST">
+       <form action="/report/generateReport" method="POST">
         <section class="ui segment">
           <div id="map_canvas" style="height: 400px;"></div>
           <button type="submit" class="ui fluid blue submit button"
-            onclick="requestReportCircle()">Search for vacant
+            onclick="requestReport()">Search for vacant
             residences</button>
         </section>
         <div style="visibility: hidden" id="circledata">

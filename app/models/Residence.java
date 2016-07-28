@@ -1,13 +1,17 @@
 package models;
 
 import play.*;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import controllers.Landlords;
+import controllers.Tenants;
 import play.Logger;
 import play.db.jpa.Model;
 import utils.LatLng;
@@ -47,6 +51,8 @@ public class Residence extends Model{
 		public static Residence findByEircode(String eircode) {
 			return find("eircode", eircode).first();
 		}
+		
+		
 
 		/*
 		 * Send String geolocation to LatLng.java to change geolocaton's primitive data type.

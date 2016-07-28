@@ -46,8 +46,7 @@ const CIRCLEMAP= (function(context) {
    * Here is the format in which marker data stored
    * geoObj[0] is eircode             
    * geoObj[1] is latitude                              
-   * geoObj[2] is longitude
-   * geoObj[3] is rented status message  
+   * geoObj[2] is longitude 
    * We use selection of geoObj in the infoWindow. 
    * Click on marker reveals the message
    */
@@ -59,7 +58,7 @@ const CIRCLEMAP= (function(context) {
           }).done(function(data) {
                $.each(data, function(index, geoObj) 
                {
-                     console.log(geoObj[0] + " " + geoObj[1] + " " + geoObj[2] + " " + geoObj[3]);
+                     console.log(geoObj[0] + " " + geoObj[1] + " " + geoObj[2]);
                });
                positionMarkers(data);
           });
@@ -123,7 +122,7 @@ const CIRCLEMAP= (function(context) {
           /*click marker displays message (infowindow) */
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
-              infowindow.setContent('Eircode ' + latlngStr[i][0] + " : " + latlngStr[i][3]);
+              infowindow.setContent('Eircode ' + latlngStr[i][0]);
                 infowindow.open(map, marker);
             }
         })(marker, i));

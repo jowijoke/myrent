@@ -23,6 +23,8 @@ GET		/tenants/tenant							Tenants.index
 GET 	/tenants/logout							Tenants.logout
 POST    /tenants/authenticate					Tenants.authenticate			
 POST    /tenants/register						Tenants.register
+GET		/tenants/vacantresidences               Tenants.retrieveMarker
+POST	/tenants/endtenancy						Tenants.endTenancy
 
 
 # InputData page
