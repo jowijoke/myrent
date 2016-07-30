@@ -131,7 +131,7 @@ public class Landlords extends Controller {
 		Residence residence = Residence.findByEircode(eircode);
 		landlord.residences.remove(residence);// removing residence from the Landlord's List of residences.
 	    landlord.save(); // Updating landlord's list with the old residence removed.
-	    residence.delete();//deleting residence form the dataabse in the residence model.
+	    residence.delete();//deleting residence form the database in the residence model.
 
 	    index();
 	}

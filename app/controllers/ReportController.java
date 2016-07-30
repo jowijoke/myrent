@@ -44,7 +44,7 @@ public class ReportController extends Controller
     for (Residence res : residencesAll)
     {
       LatLng residenceLocation = res.getGeolocation();
-      if (Geodistance.inCircle(residenceLocation, circle) && res.tenant == null )
+      if (res.tenant == null && Geodistance.inCircle(residenceLocation, circle))
       {
         residences.add(res);
         Logger.info("Residence Added");

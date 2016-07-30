@@ -47,7 +47,7 @@ Residence(residence2):
 Residence(residence3):
     area: 180
     dateRegistered: 2016-06-18t19:15:11.05
-    geolocation: 53.194063, -6.134572
+    geolocation: 52.6797387,-8.6084318
     eircode: P62R538
     numberBathrooms: 3
     numberBedrooms: 4

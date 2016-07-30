@@ -70,8 +70,8 @@ public class Tenants extends Controller {
 			}
 			Logger.info("Landed in Tenant Page");
 			render(tenant, unoccupied, tenantStatus);
+			}
 		}
-	}
 
 	public static void register(Tenant tenant) {
 		Logger.info(tenant.firstName + " " + tenant.lastName + " " + tenant.email
@@ -108,13 +108,32 @@ public class Tenants extends Controller {
 		}
 	}
 	
+	/**
+	 * Disconnect the relationship between the tenant and the residence model
+	 * @param eircode: the tenants post code that's displayed on the tenant's page 
+	 */
 	public static void endTenancy(String eircode)
 	{
 		Tenant tenant = Tenants.getCurrentTenant();
 		Residence residence = Residence.findByEircode(eircode);
-		tenant.removeResidence(residence);// removing residence from the Tenant.
+		if(residence == null)// if the tenant is not renting, refresh the page 
+		{
+			index();
+			
+		}
+		else //remove relationship by making residence equal to null 
+		{
+			tenant.residence = null;	
+		}
+		Logger.info("removing residence from the Tenant");
 	    tenant.save();
+	    
 	    index();
+	}
+	
+	public static void changeTenancy(String eircode)
+	{
+		
 	}
 	
 	public static void retrieveMarker()

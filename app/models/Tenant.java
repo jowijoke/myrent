@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import controllers.Tenants;
+import play.Logger;
 import play.db.jpa.Model;
 
 	@Entity
@@ -38,17 +40,5 @@ import play.db.jpa.Model;
 			return this.password.equals(password);
 		}
 
-		public void removeResidence(Residence residence) {
-			List<Residence> allresidence = Residence.findAll();
-			Residence thisResidence = null;
-			
-			for (Residence res : allresidence){
-				if (res.id == residence.id){
-					thisResidence = res;
-				}
-			}
-			allresidence.remove(thisResidence);
-			
-			save();
-		}
+		
 	}
