@@ -115,8 +115,7 @@ public class Tenants extends Controller {
 	public static void endTenancy(String eircode)
 	{
 		Tenant tenant = Tenants.getCurrentTenant();
-		Residence residence = Residence.findByEircode(eircode);
-		if(residence == null)// if the tenant is not renting, refresh the page 
+		if(tenant.residence == null)// if the tenant is not renting, refresh the page 
 		{
 			index();
 			
@@ -130,9 +129,26 @@ public class Tenants extends Controller {
 	    
 	    index();
 	}
+	    
 	
-	public static void changeTenancy(String eircode)
+	
+	public static void changeTenancy(String eircode_unoccupied)
 	{
+		Tenant tenant = Tenants.getCurrentTenant();
+		Logger.info("form = " + params.get("eircode_unoccupied"));
+		Residence residence = Residence.findByEircode(eircode_unoccupied);
+		Logger.info("Changing residence to " + eircode_unoccupied);
+		if (!tenant.residence.eircode.equals(eircode_unoccupied))
+		{
+			
+			residence.tenant = tenant;
+			tenant.residence = residence;
+			
+			Logger.info(" Tenants new Residence " + eircode_unoccupied + " Updated ");
+			residence.save();
+			tenant.save();
+			Tenants.index();
+		}
 		
 	}
 	

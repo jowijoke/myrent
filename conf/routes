@@ -25,7 +25,7 @@ POST    /tenants/authenticate					Tenants.authenticate
 POST    /tenants/register						Tenants.register
 GET		/tenants/vacantresidences               Tenants.retrieveMarker
 POST	/tenants/endtenancy						Tenants.endTenancy
-GET		/tenants/changetenancy					Tenants.changeTenancy
+POST	/tenants/changetenancy					Tenants.changeTenancy
 
 # InputData page
 GET		/inputdata								InputData.index

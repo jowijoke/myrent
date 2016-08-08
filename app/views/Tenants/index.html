@@ -17,7 +17,7 @@
             <form class="ui form" action="/tenants/endtenancy" method="POST">
              <h5> Rental Status</h5> 
              #{list items: tenantStatus, as:'residence'}
-                <input id="eircode" readonly value="${residence.eircode}" name="eircode" type="text">
+                <input id="current_eircode" readonly value="${residence.eircode}" name="currenteircode" type="text">
              #{/list}
       
 

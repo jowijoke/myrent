@@ -23,6 +23,7 @@ import play.db.jpa.Model;
 		@OneToOne
 		public Residence residence;
 		
+		
 		public Tenant(String firstName, String lastName, String email, String password) 
 		{
 			this.firstName = firstName;
