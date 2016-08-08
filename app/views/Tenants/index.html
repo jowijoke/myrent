@@ -16,18 +16,21 @@
             
             <form class="ui form" action="/tenants/endtenancy" method="POST">
              <h5> Rental Status</h5> 
-             #{list items: tenantStatus, as:'residence'}
-                <input id="current_eircode" readonly value="${residence.eircode}" name="currenteircode" type="text">
-             #{/list}
+             #{if tenant.residence != null}
+                <input id="current_eircode" readonly value="${tenant.residence.eircode}" name="currenteircode" type="text">
+            #{/if}
+            #{else}
+            	<input id="current_eircode" readonly placeholder="Seeking Residence" name="currenteircode" type="text">
+            #{/else}
       
 
       <div class="ui segment">
         <h5>Press to end tenancy</h5>
         
           <div class="ui fluid form segment">
-          #{list items: tenantStatus, as:'residence'}
+          
             <button type="submit" class="ui blue fluid submit button"> Terminate tenancy</button>
-          #{/list}
+          
           </div>
           </div>
         </form>

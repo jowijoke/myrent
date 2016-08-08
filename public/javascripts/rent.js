@@ -46,8 +46,10 @@ $(document).ready(function () {
     }
 
     // Add the new rental eircode to dropdown
-    let newMenuItem = dropdownDiv($eircodeOldRental);
-    $('.menu.tenant').append(newMenuItem);
+    if ($eircodeOldRental != ""){
+    	let newMenuItem = dropdownDiv($eircodeOldRental);
+    	$('.menu.tenant').append(newMenuItem);
+    }
   }
 
   function dropdownDiv(name) {

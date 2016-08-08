@@ -48,28 +48,8 @@ public class Tenants extends Controller {
 					
 				}
 			}
-			
-			
-			List<Residence> tenantStatus = new ArrayList(); //an ArrayList that stores the Tenant's status whether they're renting or not.
-			for(Residence r : residenceAll)
-			{
-				 if (tenant.residence == null) // if a tenant is not renting
-				{
-					Residence msg = new Residence(null, null, "Seeking Residence", 0, 0, 0, 0, null); //create fake residence with message "not renting" as the eircode.
-					tenantStatus.add(msg);
-					Logger.info(tenant.firstName + " rent status: is not renting");
-					break;
-				}
-				 
-				 else if (r.eircode == tenant.residence.eircode) // if tenant is renting, show the residence eircode
-				{
-					tenantStatus.add(r);
-					Logger.info(tenant.firstName + " rent status: is renting " + tenant.residence.eircode);
-				}
-				
-			}
 			Logger.info("Landed in Tenant Page");
-			render(tenant, unoccupied, tenantStatus);
+			render(tenant, unoccupied);
 			}
 		}
 
@@ -112,7 +92,7 @@ public class Tenants extends Controller {
 	 * Disconnect the relationship between the tenant and the residence model
 	 * @param eircode: the tenants post code that's displayed on the tenant's page 
 	 */
-	public static void endTenancy(String eircode)
+	public static void endTenancy(String currenteircode)
 	{
 		Tenant tenant = Tenants.getCurrentTenant();
 		if(tenant.residence == null)// if the tenant is not renting, refresh the page 
@@ -135,21 +115,14 @@ public class Tenants extends Controller {
 	public static void changeTenancy(String eircode_unoccupied)
 	{
 		Tenant tenant = Tenants.getCurrentTenant();
-		Logger.info("form = " + params.get("eircode_unoccupied"));
 		Residence residence = Residence.findByEircode(eircode_unoccupied);
 		Logger.info("Changing residence to " + eircode_unoccupied);
-		if (!tenant.residence.eircode.equals(eircode_unoccupied))
-		{
-			
-			residence.tenant = tenant;
-			tenant.residence = residence;
-			
-			Logger.info(" Tenants new Residence " + eircode_unoccupied + " Updated ");
-			residence.save();
-			tenant.save();
-			Tenants.index();
-		}
-		
+		residence.tenant = tenant;
+		tenant.residence = residence;
+		Logger.info(" Tenants new Residence " + eircode_unoccupied + " Updated ");
+	    residence.save();
+		tenant.save();
+		Tenants.index();
 	}
 	
 	public static void retrieveMarker()
