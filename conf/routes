@@ -27,6 +27,11 @@ GET		/tenants/vacantresidences               Tenants.retrieveMarker
 POST	/tenants/endtenancy						Tenants.endTenancy
 POST	/tenants/changetenancy					Tenants.changeTenancy
 
+# Administrators page
+GET		/administrators/admin					Administrators.index
+GET 	/administrators/logout					Administrators.logout
+POST    /administrators/authenticate			Administrators.authenticate
+
 # InputData page
 GET		/inputdata								InputData.index
 POST    /inputdata/datacapture					InputData.capture

@@ -1,46 +1,69 @@
 #{extends 'main.html' /} #{set title:'Signup' /}
 
 <nav class="ui olive inverted menu">
-	<a class="ui item" href="/">Welcome</a> <a class="ui active item"
-		href="/landlords/signup">Sign Up</a> <a class="ui item"
-		href="/landlords/landlord">Landlord</a> <a class="ui item"
-		href="/inputdata">Input data</a> <a class="ui item" href="/report">Report</a>
+	<a class="ui item" href="/">Welcome</a> 
+	<a class="ui active item" href="/landlords/signup">Sign Up</a>
+	<a class="ui item" href="/landlords/landlord">Login</a> 
 	<a class="ui item" href="/contact">Contact</a>
 </nav>
 
-<section class="ui form">
-	<h3>Create a MyRent account</h3>
-	<h5>Register using a valid email address</h5>
-	<form action="landlords/register" method="POST">
-		<div class="ui two column grid">
-			<div class="column">
-				<div class="ui equal width form">
-					<div class="fields">
-						<div class="field">
-							<input placeholder="First Name" name="firstName" type="text"
-								required>
-						</div>
-						<div class="field">
-							<input placeholder="Last Name" name="lastName" type="text"
-								required>
-						</div>
-					</div>
-					<div class="field">
-						<input placeholder="Email" name="email" type="text" required>
-					</div>
-					<div class="field">
-						<input placeholder="Password" name="password" type="text"
-							required>
-					</div>
-				</div>
-				<div class="field">
-					<div class="ui inline checkbox">
-						<input id="conditions" type="checkbox" required> <label
-							for="conditions">I agree to the terms and conditions</label>
-					</div>
-				</div>
-				<button type="submit" class="ui blue submit button">Submit</button>
-			</div>
-		</div>
-	</form>
+<section class="ui segment">
+  <h3>Landlord registration</h3>
+  <form action="/landlords/register" method="POST">
+    <div class="ui two column grid">
+    <div class="column">
+      <div class="ui fluid form segment">
+        <h3 class="ui header">Sign Up</h3>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" name="landlord.firstName" type="text" required>
+          </div>
+         
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" name="landlord.lastName" type="text" required>
+          </div>
+        </div>
+        
+        <div class="two fields">
+          <div class="field">
+            <label>Address 1</label>
+            <input placeholder="Address 1" name="landlord.address1" type="text" required>
+          </div>
+         
+          <div class="field">
+            <label>Address 2</label>
+            <input placeholder="Address 2" name="landlord.address2" type="text" required>
+          </div>
+        </div>
+ 
+        <div class="two fields">
+          <div class="field">
+            <label>City</label>
+            <input placeholder="City, town or village" name="landlord.city" type="text" required>
+          </div>
+         
+          <div class="field">
+            <label>County</label>
+            <input placeholder="County" name="landlord.county" type="text" required>
+          </div>
+        </div> 
+        
+        <div class="two fields">
+	        <div class="field">
+	          <label>Email</label>
+	          <input placeholder="Email" name="landlord.email" type="text" required>
+	        </div>
+	        <div class="field">
+	          <label>Password</label>
+	          <input placeholder="Password" type="password" name="landlord.password" required>
+	        </div>
+        </div>
+
+        <button type="submit" class="ui blue submit button">Submit</button>
+      </div>
+    </div>
+  </div>
+  </form>
 </section>

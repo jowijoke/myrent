@@ -15,15 +15,11 @@ import play.db.jpa.Model;
 
 	@Entity
 	public class Administrator extends Model {
-		public String firstName;
-		public String lastName;
 		public String email;
 		public String password;
 		
-		public Administrator(String firstName, String lastName, String email, String password) 
+		public Administrator(String email, String password) 
 		{
-			this.firstName = firstName;
-			this.lastName = lastName;
 			this.email = email;
 			this.password = password;
 

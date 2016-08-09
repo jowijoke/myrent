@@ -1,0 +1,40 @@
+ #{extends 'main.html' /}
+#{set title:'Administrator' /}
+ 
+ <nav class="ui inverted olive menu">
+    <a class="ui item" href="/">Home</a>
+    <a class="ui active item" href="/administrators">Administrator</a>
+    <a class="ui item" href="administrators/logout">Log out</a>
+    
+  </nav>
+
+<section class="ui segment">   
+      <h3>Administration page</h3>
+      <h5>Landlords and Tenants</h5>  
+    <div class="ui three column grid">
+      <div class="column">
+             
+       <form action="/landlords/signup" method="GET">
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Register landlord</button>
+        </div>
+      </form>
+
+       <form action="/tenants/signup" method="GET">
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Register tenant</button>
+        </div>
+      </form>
+      </div><!-- end first column -->
+      <!-- The map representing residence locations -->
+        <div class="ui fluid form segment">
+        <div class="column">
+          <h5>Single click on marker to read eircode and tenant</h5>
+          <div id="map" style="width:500px; height:460px;"></div>  
+        </div> 
+      </div>
+    </div><!-- end class ui two column grid -->
+</section>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="/public/javascripts/administrator_map.js"></script>       

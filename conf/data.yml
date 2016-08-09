@@ -1,3 +1,7 @@
+Administrator(administrator):
+    email: admin@witpress.ie
+    password: secret
+
 Landlord(homer):
     firstName: Homer
     lastName: Simpson
