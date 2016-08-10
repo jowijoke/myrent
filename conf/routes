@@ -31,6 +31,7 @@ POST	/tenants/changetenancy					Tenants.changeTenancy
 GET		/administrators/admin					Administrators.index
 GET 	/administrators/logout					Administrators.logout
 POST    /administrators/authenticate			Administrators.authenticate
+GET		/administrators/administrators/geolocations			Administrators.retrieveMarker
 
 # InputData page
 GET		/inputdata								InputData.index

@@ -16,9 +16,9 @@ const ADMIN_MAP = (function() {
    * pass returned array marker locations to positionMarkers method
    * Here is the format in which marker data stored
    * geoObj[0] is eircode             
-   * geoObj[1] is latitude                              
-   * geoObj[2] is longitude
-   * geoObj[3] is rented status message  
+   * geoObj[1] is tenant                              
+   * geoObj[2] is renatal status
+   *  
    * We use selection of geoObj in the infoWindow. 
    * Click on marker reveals the message
    */
@@ -30,7 +30,7 @@ const ADMIN_MAP = (function() {
           }).done(function(data) {
                $.each(data, function(index, geoObj) 
                {
-                     console.log(geoObj[0] + " " + geoObj[1] + " " + geoObj[2] + " " + geoObj[3]);
+                     console.log(geoObj[0] + " " + geoObj[1] + " " + geoObj[2]);
                });
                positionMarkers(data);
           });
@@ -105,7 +105,7 @@ const ADMIN_MAP = (function() {
           /*respond to click on marker by displaying user (donor) name */
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
-              infowindow.setContent('Eircode ' + latlngStr[i][0] + " : " + latlngStr[i][3]);
+              infowindow.setContent('Eircode ' + latlngStr[i][0]);
                 infowindow.open(map, marker);
             }
         })(marker, i));
@@ -147,7 +147,7 @@ const ADMIN_MAP = (function() {
         /*respond to click on marker by displaying user (donor) name */
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
-              infowindow.setContent('Eircode ' + latlngStr[i][0] + " : " + latlngStr[i][3]);
+              infowindow.setContent('Eircode ' + latlngStr[i][0]);
                 infowindow.open(map, marker);
             }
         })(marker, i));
@@ -169,28 +169,4 @@ const ADMIN_MAP = (function() {
     updateMarkers : updateMarkers
   }
 
-
-//function updateMarkers(data) {
-//markers = intersection(markers, data);
-//}
-
-/**
-* Returns markers ^ geo (^ denotes set intersection).
-* 
-* @param markers The existing array of Google overlay markers.
-* @param geo The incoming array of marker data, a subset of markers.
-*/
-//function intersection(markers, geo) {
-//return markers.filter((marker, index, array) => {
-//  for (let i = 0; i < geo.length; i += 1) {
-//    if (marker.eircode === geo[i].eircode) {
-//      return true;
-//    }
-//  }
-//
-//  return false;
-//});
-//}
-  
-}());
-//}); 
+}()); 

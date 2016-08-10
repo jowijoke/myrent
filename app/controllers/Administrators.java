@@ -63,4 +63,30 @@ public class Administrators extends Controller {
 			login();
 		}
 	}
+	
+	public static void retrieveMarker()
+	{
+		List<List<String>> vacantResidence = new ArrayList<List<String>>();
+		
+		List<Residence> residenceAll = Residence.findAll();
+		for (Residence res : residenceAll)
+		{
+			//stating if a residence has no tenant, add it to the vacantResidence ArrayList.
+			
+			if (res.tenant == null) 
+			{
+				Double lat = res.getGeolocation().getLatitude();
+				Double lng = res.getGeolocation().getLongitude();
+				vacantResidence.add(0, Arrays.asList(" " + res.eircode + " : " + "No Tenant" ,lat.toString(),lng.toString()));
+			}
+			else
+			{
+				Double lat = res.getGeolocation().getLatitude();
+				Double lng = res.getGeolocation().getLongitude();
+				vacantResidence.add(0, Arrays.asList(" " + res.eircode + " : " + "Tenant is " + res.tenant.firstName + " " + res.tenant.lastName ,lat.toString(),lng.toString()));
+			}
+		}
+	      	
+    renderJSON(vacantResidence);	
+	}
 }
