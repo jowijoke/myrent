@@ -76,6 +76,23 @@ public class Administrators extends Controller {
 		}
 	}
 	
+	public static void deleteLandlord(String email_landlord)
+	{
+		Landlord landlord = Landlord.findByEmail(email_landlord);
+		Logger.info("Email: " + email_landlord);
+		landlord.residences.clear();
+		landlord.delete();
+		index();
+	}
+	
+	public static void deleteTenant(String email_tenant)
+	{
+		Tenant tenant = Tenant.findByEmail(email_tenant);
+		Logger.info("Email: " + email_tenant);
+		tenant.delete();
+		index();
+	}
+	
 	public static void retrieveMarker()
 	{
 		List<List<String>> vacantResidence = new ArrayList<List<String>>();

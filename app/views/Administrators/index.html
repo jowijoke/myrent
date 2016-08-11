@@ -33,7 +33,7 @@
           <i class="dropdown icon"></i>
           <div class="menu landlord">
            #{list items: allLandlords, as:'landlord'}
-                        <div class="item landlord" data-value="${landlord.firstName + ' '+ landlord.lastName}">${landlord.firstName + ' ' + landlord.lastName}</div>
+                        <div class="item landlord" data-value="${landlord.email}">${landlord.firstName + ' ' + landlord.lastName}</div>
                       #{/list}
                       </div>
         </div>
@@ -56,7 +56,7 @@
           <i class="dropdown icon"></i>
           <div class="menu">
           #{list items: allTenants, as:'tenant'}
-                        <div class="item tenant" data-value="${tenant.firstName + ' '+ tenant.lastName}">${tenant.firstName + ' '+ tenant.lastName}</div>
+                        <div class="item tenant" data-value="${tenant.email}">${tenant.firstName + ' '+ tenant.lastName}</div>
           #{/list}
                       </div>
         </div>
