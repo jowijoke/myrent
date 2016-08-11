@@ -25,6 +25,53 @@
           <button type="submit" class="ui fluid blue submit button">Register tenant</button>
         </div>
       </form>
+      
+      <form class="ui form segment landlord">
+        <div id="deletelandlord" class="ui fluid selection dropdown landlord">
+          <input name="email_landlord" type="hidden" id="form_delete_landlord">
+          <div class="default text">Select landlord to delete</div>
+          <i class="dropdown icon"></i>
+          <div class="menu landlord">
+           #{list items: allLandlords, as:'landlord'}
+                        <div class="item landlord" data-value="${landlord.firstName + ' '+ landlord.lastName}">${landlord.firstName + ' ' + landlord.lastName}</div>
+                      #{/list}
+                      </div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <div id="notificationLandlord"></div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Delete landlord</button>
+          <div class="ui error message"></div>          
+        </div>
+      </form>
+
+      <!-- <form class="ui form segment"  action="/administrators/deletetenant" method="POST"> -->
+      <form class="ui form segment tenant">
+        <div id="deletetenant" class="ui fluid selection dropdown">
+          <input name="email_tenant" type="hidden" id="form_delete_tenant">
+          <div class="default text">Select tenant to delete</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+          #{list items: allTenants, as:'tenant'}
+                        <div class="item tenant" data-value="${tenant.firstName + ' '+ tenant.lastName}">${tenant.firstName + ' '+ tenant.lastName}</div>
+          #{/list}
+                      </div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <div id="notificationTenant"></div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Delete tenant</button>
+          <div class="ui error message"></div> 
+        </div>
+      </form>
+      
+      
       </div><!-- end first column -->
       <!-- The map representing residence locations -->
         <div class="ui fluid form segment">
@@ -36,4 +83,5 @@
     </div><!-- end class ui two column grid -->
 </section>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCVTnNHaLZ_Ac9B4YXYnjxF55IIm01kG2o"></script>
-<script src="/public/javascripts/administrator_map.js"></script>       
+<script src="/public/javascripts/administrator_map.js"></script>
+<script src="/public/javascripts/administrators.js"></script>

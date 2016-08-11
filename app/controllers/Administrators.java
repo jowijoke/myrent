@@ -22,23 +22,34 @@ public class Administrators extends Controller {
 		Welcome.index();
 	}
 
-	public static void index() {
+	public static void index() 
+	{
 		Administrator administrator = Administrators.getCurrentAdmin();
-		if (administrator == null) {
+		if (administrator == null) 
+		{
 			Logger.info("Admin class : Unable to getCurrentAdmin");
 			Administrators.login();
-		} else {
-			render(administrator);
 		}
+		else 
+		{
+			List<Landlord> allLandlords = Landlord.findAll();
+			List<Tenant> allTenants = Tenant.findAll();
+			Logger.info("Landed in Admin Page");
+			render(administrator, allLandlords, allTenants );
+		}
+		
 	}
+	
 
-	public static void register(Administrator administrator) {
+	public static void register(Administrator administrator)
+	{
 		Logger.info(administrator.email + " " + administrator.password);
 		administrator.save();
 		login();
 	}
 
-	public static Administrator getCurrentAdmin() {
+	public static Administrator getCurrentAdmin() 
+	{
 		String adminId = session.get("logged_in_adminId");
 		if (adminId == null) {
 			return null;
@@ -50,7 +61,8 @@ public class Administrators extends Controller {
 
 	}
 
-	public static void authenticate(String email, String password) {
+	public static void authenticate(String email, String password) 
+	{
 		Logger.info("Attempting to authenticate with " + email + ":" + password);
 
 		Administrator administrator = Administrator.findByEmail(email);

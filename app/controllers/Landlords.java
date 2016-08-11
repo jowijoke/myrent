@@ -35,7 +35,8 @@ public class Landlords extends Controller {
 			{
 				List<Residence> residenceAll = Residence.findAll();
 				List<Residence> landlordId = new ArrayList();
-				for (Residence res : residenceAll){
+				for (Residence res : residenceAll)
+				{
 					
 					//stating if logged in landlord's id equals to residences with the same 'from' id  
 					
