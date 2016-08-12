@@ -163,10 +163,25 @@ const ADMIN_MAP = (function() {
     }
   }
   
+  function refreshMarkers()
+  {
+    const latlng = [];
+      $(function() {
+          $.get("/administrators/administrators/geolocations", function(data) {
+          }).done(function(data) {
+               $.each(data, function(index, geoObj) 
+               {
+                     console.log(geoObj[0] + " " + geoObj[1] + " " + geoObj[2] + " " + geoObj[3]);
+               });
+               updateMarkers(data);
+          });
+      });
+   }
   google.maps.event.addDomListener(window, 'load', initialize);
 
   return {
-    updateMarkers : updateMarkers
+    updateMarkers : updateMarkers,
+    refreshMarkers: refreshMarkers,
   }
 
 }()); 

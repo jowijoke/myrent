@@ -34,11 +34,12 @@
       data : formData,
       success : function(response) {
         console.log('delete landlord response : ' + response);
-        $('#notificationLandlord').html('Landlord deleted : ' + $('#form_delete_landlord').val());
+        $('#notificationLandlord').html("<div class=\"ui tertiary inverted green fluid form segment\">"
+	    		+ "Congratulations. The Landlord you deleted successfully is : " +$('#form_delete_landlord').val()+".</div>");
         // response format: eircode, lat, lng, marker message
-        ADMIN_MAP.updateMarkers(response);
+        ADMIN_MAP.refreshMarkers();
         
-        let email = $('#deletelandlord').dropdown('get text');
+        let email = $('#deletelandlord').dropdown('get value');
         removeItemLandlordDropdown(email);
       }
     });
@@ -84,10 +85,11 @@ function updateTenant() {
     data : formData,
     success : function(response) {
       // response format: eircode, lat, lng, marker message
-      $('#notificationTenant').html('Tenant deleted : ' + $('#form_delete_tenant').val());
-      ADMIN_MAP.updateMarkers(response);
+      $('#notificationTenant').html("<div class=\"ui tertiary inverted green fluid form segment\">"
+	    		+ "Congratulations. The Tenant you deleted successfully is : " + $('#form_delete_tenant').val()+".</div>");
       
-      let email = $('#deletetenant').dropdown('get text');
+      
+      let email = $('#deletetenant').dropdown('get value');
       removeItemTenantDropdown(email);
     }
   });

@@ -29,7 +29,7 @@ POST	/tenants/changetenancy					Tenants.changeTenancy
 
 # Administrators page
 GET		/administrators/admin					Administrators.index
-GET 	/administrators/logout					Administrators.logout
+GET 	/administrators/administrators/logout					Administrators.logout
 POST    /administrators/authenticate			Administrators.authenticate
 GET		/administrators/administrators/geolocations			Administrators.retrieveMarker
 POST	/administrators/deletelandlord			Administrators.deleteLandlord

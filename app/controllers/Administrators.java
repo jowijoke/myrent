@@ -6,6 +6,8 @@ import play.mvc.*;
 import models.*;
 import java.util.*;
 
+import org.json.simple.JSONObject;
+
 public class Administrators extends Controller {
 	public static void signup() {
 		render();
@@ -80,9 +82,19 @@ public class Administrators extends Controller {
 	{
 		Landlord landlord = Landlord.findByEmail(email_landlord);
 		Logger.info("Email: " + email_landlord);
-		landlord.residences.clear();
-		landlord.delete();
-		index();
+		
+	//if a landlord has tenants, the tenant/residence relationship must be terminated first before the landlord is removed.
+		for(Residence res : landlord.residences)
+		{
+			Tenant t = res.tenant;
+			if (t != null)
+			{
+				t.residence = null; //end the relationship between tenant and residence
+				t.save();
+			}
+		}
+	    landlord.delete();
+	    index();
 	}
 	
 	public static void deleteTenant(String email_tenant)
