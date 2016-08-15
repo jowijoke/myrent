@@ -157,17 +157,46 @@ public class Administrators extends Controller {
 			Administrators.login();
 		}
 		else
-		{	List<Residence> selectedRes = null; 
+		{	
+			List<Residence> selectedRes = null; 
 			if (rentedStatus != null) {
 			switch (rentedStatus) {
 			case "rented":
-				selectedRes = Residence.rentedResidences();	
-				Logger.info(" rented res: " + selectedRes);
+				selectedRes = Residence.findRentedResidences();	
 				break;
 				
 			case "vacant":
-				selectedRes = Residence.vacantResidences();
-				Logger.info(" vacant res: " + selectedRes);
+				selectedRes = Residence.findVacantResidences();
+				break;
+			
+			}
+			}
+			render(administrator, selectedRes);
+		}
+	}
+	
+	public static void byResidenceType(String residenceType)
+	{
+		Administrator administrator = Administrators.getCurrentAdmin();
+		if (administrator == null) 
+		{
+			Logger.info("Admin class : Unable to getCurrentAdmin");
+			Administrators.login();
+		}
+		else
+		{	List<Residence> selectedRes = null; 
+			if (residenceType != null) {
+			switch (residenceType) {
+			case "flat":
+				selectedRes = Residence.findFlatResidences();	
+				break;
+				
+			case "studio":
+				selectedRes = Residence.findStudioResidences();
+				break;
+			
+			case "house":
+				selectedRes = Residence.findHouseResidences();
 				break;
 			}
 			}

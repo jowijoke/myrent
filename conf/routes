@@ -36,6 +36,7 @@ POST	/administrators/deletelandlord			Administrators.deleteLandlord
 POST	/administrators/deletetenant			Administrators.deleteTenant
 GET		/reports								Administrators.reports
 GET		/reports/byRented						Administrators.byRented(rentedStatus:String)
+GET		/reports/byResidenceType				Administrators.byResidenceType(residenceType:String)
 
 
 # InputData page

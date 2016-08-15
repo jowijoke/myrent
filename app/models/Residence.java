@@ -52,7 +52,7 @@ public class Residence extends Model{
 			return find("eircode", eircode).first();
 		}
 		
-		public static List<Residence> vacantResidences()
+		public static List<Residence> findVacantResidences()
 		{	
 			List<Residence> allRes = Residence.findAll();
 			List<Residence> vacantRes = new ArrayList();
@@ -65,7 +65,7 @@ public class Residence extends Model{
 			}
 			return vacantRes;
 		}
-		public static List<Residence> rentedResidences()
+		public static List<Residence> findRentedResidences()
 		{	
 			List<Residence> allRes = Residence.findAll();
 			List<Residence> rentedRes = new ArrayList();
@@ -85,6 +85,45 @@ public class Residence extends Model{
 		public LatLng getGeolocation() {
 			return LatLng.toLatLng(geolocation);
 			
+		}
+
+		public static List<Residence> findFlatResidences() {
+			List<Residence> allRes = Residence.findAll();
+			List<Residence> flatRes = new ArrayList();
+			for(Residence r : allRes)
+			{
+				if(r.residenceType.contains("flat"))
+				{
+					flatRes.add(r);
+				}
+			}
+			return flatRes;
+		}
+
+		public static List<Residence> findStudioResidences() {
+			List<Residence> allRes = Residence.findAll();
+			List<Residence> studioRes = new ArrayList();
+			for(Residence r : allRes)
+			{
+				if(r.residenceType.contains("studio"))
+				{
+					studioRes.add(r);
+				}
+			}
+			return studioRes;
+		}
+
+		public static List<Residence> findHouseResidences() {
+			List<Residence> allRes = Residence.findAll();
+			List<Residence> houseRes = new ArrayList();
+			for(Residence r : allRes)
+			{
+				if(r.residenceType.contains("house"))
+				{
+					houseRes.add(r);
+				}
+			}
+			return houseRes;
 		}
 
 		
