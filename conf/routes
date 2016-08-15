@@ -34,6 +34,8 @@ POST    /administrators/authenticate			Administrators.authenticate
 GET		/administrators/administrators/geolocations			Administrators.retrieveMarker
 POST	/administrators/deletelandlord			Administrators.deleteLandlord
 POST	/administrators/deletetenant			Administrators.deleteTenant
+GET		/reports								Administrators.reports
+GET		/reports/byRented						Administrators.byRented(rentedStatus:String)
 
 
 # InputData page

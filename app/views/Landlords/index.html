@@ -23,7 +23,7 @@
 					<div class="default text">Select residence to delete</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
-						#{list items: landlordId, as:'residence'}
+						#{list items: landlord.residences, as:'residence'}
 						<div class="item" data-value=${residence.eircode}>${residence.eircode}</div>
 						#{/list}
 					</div>
@@ -52,7 +52,7 @@
 					<div class="default text">Edit Residence</div>
 					<i class="dropdown icon"></i>
 					<div class="menu">
-						#{list items: landlordId, as:'residence'}
+						#{list items: landlord.residences, as:'residence'}
 						<div class="item" data-value="${residence.eircode}">${residence.eircode}</div>
 						#{/list}
 					</div>

@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.db.jpa.GenericModel.JPAQuery;
 import play.mvc.*;
 
 import models.*;
@@ -130,4 +131,48 @@ public class Administrators extends Controller {
 	      	
     renderJSON(vacantResidence);	
 	}
+	
+	public static void reports()
+	{
+		Administrator administrator = Administrators.getCurrentAdmin();
+		if (administrator == null) 
+		{
+			Logger.info("Admin class : Unable to getCurrentAdmin");
+			Administrators.login();
+		}
+		else 
+		{
+			List<Residence> allResidences= Residence.findAll();
+			Logger.info("Landed in Admin Report Page");
+			render(administrator, allResidences );
+		}
+	}
+	
+	public static void byRented(String rentedStatus)
+	{
+		Administrator administrator = Administrators.getCurrentAdmin();
+		if (administrator == null) 
+		{
+			Logger.info("Admin class : Unable to getCurrentAdmin");
+			Administrators.login();
+		}
+		else
+		{	List<Residence> selectedRes = null; 
+			if (rentedStatus != null) {
+			switch (rentedStatus) {
+			case "rented":
+				selectedRes = Residence.rentedResidences();	
+				Logger.info(" rented res: " + selectedRes);
+				break;
+				
+			case "vacant":
+				selectedRes = Residence.vacantResidences();
+				Logger.info(" vacant res: " + selectedRes);
+				break;
+			}
+			}
+			render(administrator, selectedRes);
+		}
+	}
+	
 }

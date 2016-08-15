@@ -32,23 +32,9 @@ public class Landlords extends Controller {
 				Landlords.login();
 			}
 			else
-			{
-				List<Residence> residenceAll = Residence.findAll();
-				List<Residence> landlordId = new ArrayList();
-				for (Residence res : residenceAll)
-				{
-					
-					//stating if logged in landlord's id equals to residences with the same 'from' id  
-					
-					if (landlord.id == res.landlord.id) 
-					{
-						
-						landlordId.add(res);
-					}
-				}
-				
+			{				
 				Logger.info("Landed in Landlord Page");
-				render(landlord, landlordId);
+				render(landlord, landlord.residences); //rendering the landlord that's logged in and that lanlord's list of residences.
 			}
 		}
 	}
@@ -130,6 +116,15 @@ public class Landlords extends Controller {
 	{
 		Landlord landlord = Landlords.getCurrentLandlord();
 		Residence residence = Residence.findByEircode(eircode);
+		for(Residence res : landlord.residences)
+		{
+			Tenant t = res.tenant;
+			if (t != null)
+			{
+				t.residence = null; //end the relationship between tenant and residence
+				t.save();
+			}
+		}
 		landlord.residences.remove(residence);// removing residence from the Landlord's List of residences.
 	    landlord.save(); // Updating landlord's list with the old residence removed.
 	    residence.delete();//deleting residence form the database in the residence model.

@@ -52,8 +52,33 @@ public class Residence extends Model{
 			return find("eircode", eircode).first();
 		}
 		
+		public static List<Residence> vacantResidences()
+		{	
+			List<Residence> allRes = Residence.findAll();
+			List<Residence> vacantRes = new ArrayList();
+			for(Residence r : allRes)
+			{
+				if(r.tenant == null)
+				{
+					vacantRes.add(r);
+				}
+			}
+			return vacantRes;
+		}
+		public static List<Residence> rentedResidences()
+		{	
+			List<Residence> allRes = Residence.findAll();
+			List<Residence> rentedRes = new ArrayList();
+			for(Residence r : allRes)
+			{
+				if(r.tenant != null)
+				{
+					rentedRes.add(r);
+				}
+			}
+			return rentedRes;
+		}
 		
-
 		/*
 		 * Send String geolocation to LatLng.java to change geolocaton's primitive data type.
 		 */
@@ -61,8 +86,7 @@ public class Residence extends Model{
 			return LatLng.toLatLng(geolocation);
 			
 		}
+
 		
-		
-		
-		}
+	}
 		

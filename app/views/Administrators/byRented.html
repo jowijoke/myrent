@@ -1,0 +1,133 @@
+#{extends 'main.html' /}
+#{set title:'Reports/byRented' /}
+
+<body>
+       <nav class="ui olive inverted menu">
+	<a class="ui item" href="/">Home</a> 
+	<a class="ui item" href="/administrators/admin">Administrator</a>
+	<a class="ui active item" href="/reports">Reports</a> 
+  <a class="ui item" href="/contact">Contact</a>
+  <a class="ui item" href="/administrators/logout">Logout</a>
+  
+</nav>
+
+<section class="ui segment">
+<h4>Report filtering</h4>
+  <table class="ui table segment">
+    <thead>
+      <tr>
+        <th>Eircode</th>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Number bedrooms</th>
+        <th>Number bathrooms</th>
+        <th>Rent(&euro;)</th>
+        <th>Area (m<sup>2</sup>)</th>
+        <th>Landlord</th>
+        <th>Tenant</th>
+      </tr>
+    </thead>
+    <tbody>
+    #{list items: selectedRes, as:'residence'}
+          <tr>
+        <td>${residence.eircode}</td>
+        <td>${residence.dateRegistered} </td>
+        <td>${residence.residenceType} </td>
+        <td>${residence.numberBedrooms} </td>
+        <td>${residence.numberBathrooms} </td>
+        <td>${residence.rent} </td>
+        <td>${residence.area} </td>
+        <td>${residence.landlord.firstName + " " + residence.landlord.lastName} </td>
+        <td>
+        #{if residence.tenant == null}
+        vacant
+        #{/if} 
+        #{else}
+        ${residence.tenant.firstName + " " + residence.tenant.lastName}
+        #{/else}
+        
+        
+        
+        </td>
+      </tr>
+        #{/list}  
+        </tbody>
+  </table>
+</section>
+
+<section class="ui segment"> 
+<div class="ui grid">
+
+<div class="four wide column">
+<!-- Filter: by rented (yes/no) residences -->  
+<div class="ui form" >
+  <form action="/reports/byRented" method="GET"> 
+  <div class="ui fluid form segment">       
+    <div class="ui dropdown" id="byrented">
+      <i class="dropdown icon"></i>
+      <input name="rentedStatus" type="hidden">
+      <span class="text">By Rented</span>
+      <div class="menu">
+        <div class="item" data-value="Rented">Rented</div>
+        <div class="item" data-value="Vacant">Vacant</div>
+      </div>    
+    </div> 
+    <button type="submit" class="ui blue submit button">Filter</button>
+   </div>
+  </form>
+</div>
+</div>
+
+<div class="four wide column">
+<!-- Filter: list by type -->  
+<div class="ui form" >
+  <form action="/reports/byResidenceType" method="GET"> 
+  <div class="ui fluid form segment">       
+    <div class="ui dropdown" id="bytype">
+      <i class="dropdown icon"></i>
+      <input name="residenceType" type="hidden">
+      <span class="text">By Type</span>
+      <div class="menu">
+        <div class="item" data-value="flat">Apartment|Flat</div>
+        <div class="item" data-value="studio">Studio</div>
+        <div class="item" data-value="house">House</div>
+      </div>    
+    </div> 
+    <button type="submit" class="ui blue submit button">Filter</button>
+   </div>
+  </form>
+</div>
+</div>
+
+<div class="four wide column">
+<!-- Filter: sort ascending/descending rent per residence -->  
+<div class="ui form" >
+  <form action="/reports/bySortedRent" method="GET"> 
+  <div class="ui fluid form segment">       
+    <div class="ui dropdown" id="bysort">
+      <i class="dropdown icon"></i>
+      <input name="sortDirection" type="hidden">
+      <span class="text">Rent (&euro;) </span>
+      <div class="menu">
+        <div class="item" data-value="ascending">Sort (ascending)</div>
+        <div class="item" data-value="descending">Sort (descending)</div>
+      </div>   
+    </div> 
+    <button type="submit" class="ui blue submit button">Filter</button>
+   </div>
+  </form>
+</div>
+</div>
+
+<div class="three wide column">
+<form action="/reports" method="GET">
+  <div class="ui form segment">
+  
+    <button type="submit" class="ui blue submit button">All</button>
+  </div>
+</form>
+</div> 
+
+</div> 
+</section> 
+<script src="/public/javascripts/reports.js"></script>

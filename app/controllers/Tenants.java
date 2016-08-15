@@ -143,7 +143,7 @@ public class Tenants extends Controller {
 			
 		}
 	      	
-    renderJSON(vacantResidence);	
+    renderJSON(vacantResidence);
 	}
 
 }
