@@ -37,7 +37,7 @@ POST	/administrators/deletetenant			Administrators.deleteTenant
 GET		/reports								Administrators.reports
 GET		/reports/byRented						Administrators.byRented(rentedStatus:String)
 GET		/reports/byResidenceType				Administrators.byResidenceType(residenceType:String)
-
+GET		/reports/byCost							Administrators.byCost(sortDirection:String)
 
 # InputData page
 GET		/inputdata								InputData.index

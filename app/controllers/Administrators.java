@@ -3,7 +3,7 @@ package controllers;
 import play.*;
 import play.db.jpa.GenericModel.JPAQuery;
 import play.mvc.*;
-
+import utils.ResidenceRentComparator;
 import models.*;
 import java.util.*;
 
@@ -201,6 +201,33 @@ public class Administrators extends Controller {
 			}
 			}
 			render(administrator, selectedRes);
+		}
+	}
+	
+	public static void byCost(String sortDirection)
+	{
+		Administrator administrator = Administrators.getCurrentAdmin();
+		if (administrator == null) 
+		{
+			Logger.info("Admin class : Unable to getCurrentAdmin");
+			Administrators.login();
+		}
+		else
+		{	
+			List<Residence> allRes = Residence.findAll();
+			if (sortDirection != null) {
+			switch (sortDirection) {
+			case "ascending":
+				Collections.sort(allRes, new ResidenceRentComparator());
+				break;
+				
+			case "descending":
+				Collections.reverseOrder(new ResidenceRentComparator());
+				break;
+			
+			}
+			}
+			render(administrator);
 		}
 	}
 	

@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-#{set title:'Reports/byResidenceType' /}
+#{set title:'Reports/byCost' /}
 
 <body>
        <nav class="ui olive inverted menu">
@@ -45,9 +45,6 @@
         #{else}
         ${residence.tenant.firstName + " " + residence.tenant.lastName}
         #{/else}
-        
-        
-        
         </td>
       </tr>
         #{/list}  

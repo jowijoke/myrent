@@ -12,7 +12,7 @@ public class ResidenceRentComparator implements Comparator<Residence> {
 
 	@Override
 	public int compare(Residence a, Residence b) {
-		return Integer.compare(a.rent, b.rent);
+		return Integer.compare((Integer.valueOf(a.rent)),(Integer.valueOf(b.rent)));
 
 	}
 }
