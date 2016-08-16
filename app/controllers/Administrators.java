@@ -132,6 +132,37 @@ public class Administrators extends Controller {
     renderJSON(vacantResidence);	
 	}
 	
+	public static void charts()
+	{
+		Administrator administrator = Administrators.getCurrentAdmin();
+		if (administrator == null) 
+		{
+			Logger.info("Admin class : Unable to getCurrentAdmin");
+			Administrators.login();
+		}
+		else 
+		{
+			List<Residence> allRes = Residence.findAll();
+			Logger.info("Landed in Admin Page");
+			render(administrator, allRes );
+		}
+	}
+	
+	public static void retrieveChartInfo()
+	{
+		List<List<String>> chartInfo = new ArrayList<List<String>>();
+		
+		List<Landlord> lanAll = Landlord.findAll();
+		for (Landlord lan : lanAll)
+		{
+			int rent = lan.getRentPercentage();
+			chartInfo.add(0, Arrays.asList(lan.firstName + " " + lan.lastName, ""+rent));// "" is used to convert rent into a string.
+			
+		}
+	      	
+    renderJSON(chartInfo);
+	}
+	
 	public static void reports()
 	{
 		Administrator administrator = Administrators.getCurrentAdmin();
