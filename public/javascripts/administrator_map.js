@@ -1,24 +1,16 @@
-//$(document).ready(function () {
 const ADMIN_MAP = (function() { 
   let map;
   const markerLatLng = [];
   let marker;
   const markers = [];
   function initialize() {
-    // create basic map without markers
     basicMap();
-    // get marker locations and render on map
       retrieveMarkerLocations();
   }
 
   /**
    * Use ajax call to get markers
    * pass returned array marker locations to positionMarkers method
-   * Here is the format in which marker data stored
-   * geoObj[0] is eircode             
-   * geoObj[1] is tenant                              
-   * geoObj[2] is renatal status
-   *  
    * We use selection of geoObj in the infoWindow. 
    * Click on marker reveals the message
    */
@@ -40,12 +32,10 @@ const ADMIN_MAP = (function() {
   /**
    * we've got the marker location from data in ajax call
    * we now put data into an array
-   * the format is 'zzz zzz, xx.xxxx, yy.yyyyy, sssssss ' -> (eircode, lat, lng, tenant)
    * then invoke 'fitBounds' to render the markers, centre map and create infoWindow to display firstName
    */
   function positionMarkers(data)
   {
-    //removeMarkers();
     latlngStr = [];
     $.each(data, function(index, geoObj) 
     {
@@ -123,7 +113,6 @@ const ADMIN_MAP = (function() {
    * Method intended to be used where markers replaced on exist map without changing bounds.
    * we've got the marker location from data in ajax call
    * we now put data into an array
-   * the format is 'zzz zzz, xx.xxxx, yy.yyyyy, sssssss ' -> (eircode, lat, lng, tenant)
    */
    
   function updateMarkers(data)

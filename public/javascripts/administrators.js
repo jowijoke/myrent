@@ -1,5 +1,3 @@
-//$(document).ready(function() {
-
   $('#deletetenant').dropdown();
   $('#deletelandlord').dropdown();
   

@@ -222,12 +222,13 @@ public class Administrators extends Controller {
 				break;
 				
 			case "descending":
-				Collections.reverseOrder(new ResidenceRentComparator());
+				Collections.sort(allRes, new ResidenceRentComparator());
+				Collections.reverse(allRes);
 				break;
 			
 			}
 			}
-			render(administrator);
+			render(administrator, allRes);
 		}
 	}
 	

@@ -9,9 +9,6 @@ function initialize() {
 	};
 	const mapDiv = document.getElementById('map_canvas');
 	map = new google.maps.Map(mapDiv, mapOptions);
-//	mapDiv.style.width = '500px';
-//	mapDiv.style.height = '600px';
-	// place a marker
 	marker = new google.maps.Marker({
 		map : map,
 		draggable : true,
