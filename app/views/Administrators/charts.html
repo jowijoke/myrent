@@ -1,0 +1,47 @@
+#{extends 'main.html' /}
+#{set title:'Chart' /}
+
+ <nav class="ui olive inverted menu">
+	<a class="ui item" href="/">Home</a> 
+	<a class="ui item" href="/administrators/admin">Administrator</a>
+	<a class="ui item" href="/reports">Reports</a>
+	<a class="ui active item" href="/charts">Charts</a>
+  <a class="ui item" href="/contact">Contact</a>
+  <a class="ui item" href="/administrators/logout">Logout</a>
+  
+</nav>
+
+<section class="ui segment">
+  <div class="ui two column grid">
+    <div class="column">
+      <div class="ui segment">
+      <h4>List rents</h4>
+        <table class="ui table segment">
+    <thead>
+      <tr>
+        <th>Landlord</th>
+        <th>Eircode</th>
+        <th>Rent</th>
+      </tr>
+    </thead>
+    <tbody>
+    #{list items: allRes, as:'residence'}
+          <tr>
+        <td>${residence.landlord.firstName + " " + residence.landlord.lastName}</td>
+        <td>${residence.eircode}</td>
+        <td>${residence.rent}</td>
+      </tr>
+         #{/list}  
+        </tbody>
+  </table>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <div id="chartContainer" style="width: 100%; height: 300px"></div>
+        </div>
+    </div>
+  </div>
+</section>
+<script src="/public/javascripts/piechart.js" charset="utf-8"></script>
+<script src="/public/javascripts/jquery.canvasjs.min.js" charset="utf-8"></script>

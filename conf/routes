@@ -38,6 +38,8 @@ GET		/reports								Administrators.reports
 GET		/reports/byRented						Administrators.byRented(rentedStatus:String)
 GET		/reports/byResidenceType				Administrators.byResidenceType(residenceType:String)
 GET		/reports/byCost							Administrators.byCost(sortDirection:String)
+GET		/charts									Administrators.charts
+GET     /charts/chartInfo						Administrators.retrieveChartInfo
 
 # InputData page
 GET		/inputdata								InputData.index
