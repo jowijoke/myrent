@@ -90,8 +90,16 @@
 				</div>
 			</div>
 			<div class="column">
-				<div class="ui raised fluid form segment">
-					<div id="map_canvas" class="ui 4:3 embed">Map Canvas</div>
+        <div class="ui raised fluid form segment">
+          <div id="map_canvas" style="width:100%; height:300px; border: 0'" ></div>
+        </div>
+        <div class="ui raised fluid form segment">
+        <div>
+        <iframe src="https://finder.eircode.ie/#/map" 
+        width= "100%" height= "300px"></iframe>
+        </div>
+        </div>
+      </div>
 					<script
 						src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 					<script src="/public/javascripts/map.js" type="text/javascript"
