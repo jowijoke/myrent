@@ -8,7 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import controllers.Landlords;
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
 
@@ -46,38 +45,5 @@ public class Landlord extends Model {
 
 	public boolean checkPassword(String password) {
 		return this.password.equals(password);
-	}
-	
-	/**
-	 * Gets total rent for each particular landlord.
-	 * @return total rent of the particular landlord
-	 */
-	public int getTotalRent()
-	{
-		int total = 0;
-		for(Residence r : this.residences)
-		{
-			total += r.rent;
-		}
-		
-		return total;
-		
-	}
-	
-	public static int getTotalRentForAllLandlords()
-	{
-		int total = 0;
-		List<Landlord> landlordall = Landlord.findAll();
-		for(Landlord l : landlordall)
-		{
-			total += l.getTotalRent();
-		}
-		return total;
-	}
-	
-	public int getRentPercentage()
-	{
-		return getTotalRent()*100/getTotalRentForAllLandlords();//java convention to multiply first before division in relation to integers.
-		
 	}
 }
