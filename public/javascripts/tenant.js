@@ -34,9 +34,9 @@ $(document).ready(function () {
     });
   }
 
+  // Delete the selected eircode from dropdown menu
   function updateTenantDropdown($eircodeOldRental, $eircodeNewRental) {
     let $obj = $('.item.eircode');
-    // Remove the selected eircode from dropdown
     for (let i = 0; i < $obj.length; i += 1) {
       if ($obj[i].getAttribute('data-value').localeCompare($eircodeNewRental) == 0) {
         $obj[i].remove();
