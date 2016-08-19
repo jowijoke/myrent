@@ -15,7 +15,8 @@ public class Administrators extends Controller {
 	}
 
 	public static void login() {
-		render();
+		Administrator admin = new Administrator("admin@witpress.ie", "secret");
+		render(admin);
 	}
 
 	public static void logout() {
