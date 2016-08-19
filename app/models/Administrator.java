@@ -20,8 +20,8 @@ import play.db.jpa.Model;
 		
 		public Administrator(String email, String password) 
 		{
-			this.email = "admin@witpress.ie";
-			this.password = "secret";
+			this.email = email;
+			this.password = password;
 
 		}
 		
