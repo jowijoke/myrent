@@ -31,6 +31,8 @@ POST	/tenants/changetenancy					Tenants.changeTenancy
 GET		/administrators/admin					Administrators.index
 GET 	/administrators/administrators/logout					Administrators.logout
 POST    /administrators/authenticate			Administrators.authenticate
+GET		/administrator/signup					Administrator.signup
+POST	/administrator/register					Administrator.register
 GET		/administrators/administrators/geolocations			Administrators.retrieveMarker
 POST	/administrators/deletelandlord			Administrators.deleteLandlord
 POST	/administrators/deletetenant			Administrators.deleteTenant

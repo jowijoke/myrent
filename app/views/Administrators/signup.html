@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Signup (Admin)' /}
+
+<nav class="ui olive inverted menu">
+   <a class="ui item" href="/">Welcome</a>
+   <a class="ui active item" href="/administrators/signup">Sign Up</a>
+    <a class="ui item" href="/contact">Contact</a>
+ </nav>
+ 
+<section class="ui segment">
+	<h3>Admin registration</h3>
+	<form action="/administrator/register" method="POST">
+		<div class="ui two column grid">
+			<div class="column">
+				<div class="ui fluid form segment">
+					<div class="two fields">
+						<div class="field">
+							<label>Email</label> <input placeholder="Email"
+								name="administrator.email" type="text">
+						</div>
+						<div class="field">
+							<label>Password</label> <input placeholder="password"
+								name="administrator.password">
+						</div>
+					</div>
+
+					<button type="submit" class="ui blue submit button">Submit</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</section> 
