@@ -112,10 +112,10 @@ public class Landlords extends Controller {
 
 	}
 	
-	public static void deleteResidence(String eircode)
+	public static void deleteResidence(String eircode_delete)
 	{
 		Landlord landlord = Landlords.getCurrentLandlord();
-		Residence residence = Residence.findByEircode(eircode);
+		Residence residence = Residence.findByEircode(eircode_delete);
 		for(Residence res : landlord.residences)
 		{
 			Tenant t = res.tenant;
@@ -135,13 +135,13 @@ public class Landlords extends Controller {
 	
 	/**
 	 * Render edit Residence page using the eircode the landlord has chosen
-	 * @param eircode
+	 * @param eircode_edit
 	 */
-	public static void editResidence(String eircode)
+	public static void editResidence(String eircode_edit)
 	
 	{
-		Residence residence = Residence.findByEircode(eircode);
-		Logger.info("Opening editResidence page for eircode " + eircode);
+		Residence residence = Residence.findByEircode(eircode_edit);
+		Logger.info("Opening editResidence page for eircode " + eircode_edit);
 		render(residence);
 	}
 	
